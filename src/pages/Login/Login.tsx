@@ -6,4 +6,4 @@ const Login: FC = () => {
     )
 }
 
-export default Login
+export default Login;
