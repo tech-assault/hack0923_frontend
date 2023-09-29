@@ -45,7 +45,7 @@ const Mall: FC = () => {
         />
         <span className="span subtitle-input-error"></span>
         <button type="submit" className="login__button-save">
-          Войти
+        Перейти к данным
         </button>
       </form>
     </div>
