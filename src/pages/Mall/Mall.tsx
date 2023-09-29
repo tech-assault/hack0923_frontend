@@ -19,26 +19,27 @@ const Mall: FC = () => {
         className="login__form"
         noValidate
       >
+        <p className='login__title-input'>Город</p>
         <input
           type="text"
           className="login__info login__info_form_title"
           id="title-input"
-          placeholder="Email"
+          placeholder="Москва"
         //   minLength="6"
         //   maxLength="40"
-        //   value={email}
         //   onChange={handleEmailChange}
           required
         />
         <span className="span title-input-error"></span>
+
+        <p className='login__title-input'>Id торгового комплекса</p>
         <input
           type="password"
           className="login__info login__info_form_subtitle"
           id="subtitle-input"
-          placeholder="Пароль"
+          placeholder="aa12bbb345"
         //   minLength="6"
         //   maxLength="200"
-        //   value={password}
         //   onChange={handlePasswordChange}
           required
         />
