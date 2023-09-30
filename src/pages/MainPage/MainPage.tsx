@@ -6,6 +6,9 @@ const MainPage: FC = () => {
     return (
         <main className={styles.container}>
             <FilterBar />
+            <div className={styles.content}>
+                
+            </div>
         </main>
     )
 }
