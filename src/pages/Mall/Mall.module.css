@@ -1,0 +1,147 @@
+.login {
+    background-color: #c0c0c0;
+    padding: 70px 120px;
+    border-radius: 16px;
+    opacity: 0.88;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .span {
+    min-height: 40px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .login__welcome {
+    color: #000;
+    font-family: "Futura PT";
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 22px;
+    max-width: 635px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .login__title-input {
+    color: #000;
+    font-family: "Futura PT";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 22px;
+    margin: 0;
+    padding-bottom: 10px;
+  }
+  
+  .login__paragraph {
+    max-width: 395px;
+    font-family: "Inter", "Arial", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 15px;
+    margin: 0;
+  }
+  
+  .login__info {
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "Futura PT";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    min-width: 395px;
+    padding: 8px 12px;
+    border-radius: 2px;
+    border: 1px solid var(--neutral-5, #D9D9D9);
+    background: var(--neutral-1, #FFF);
+    cursor: pointer;
+  }
+  
+  .login__form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login__button-save {
+    color: #fff;
+    margin-top: 10px;
+    min-width: 395px;
+    font-family: "Futura PT";
+    text-align: center;
+    font-family: Futura PT;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    padding: 14px 0;
+    border-radius: 2px;
+    border: 1px solid var(--primary-6, #1890ff);
+    background: var(--primary-6, #1890ff);
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+  }
+  
+  .city-selector {
+    position: relative;
+  }
+  
+  .city-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 136px;
+    overflow-y: scroll;
+    z-index: 1;
+    border-radius: 2px;
+    background: var(--conditional-pop-over, #fff);
+    box-shadow: 0px 9px 28px 8px rgba(0, 0, 0, 0.05),
+      0px 6px 16px 0px rgba(0, 0, 0, 0.08), 0px 3px 6px -4px rgba(0, 0, 0, 0.12);
+  }
+  
+  .city-dropdown__name {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.18px;
+    margin-top: 4px;
+    background: var(--conditional-item-background-hover, #f5f5f5);
+    font-family: "Futura PT";
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .id-dropdown__name {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.18px;
+    margin-top: 4px;
+    background: var(--conditional-item-background-hover, #f5f5f5);
+    font-family: "Futura PT";
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .id-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 136px;
+    overflow-y: scroll;
+    z-index: 1;
+    border-radius: 2px;
+    background: var(--conditional-pop-over, #fff);
+    box-shadow: 0px 9px 28px 8px rgba(0, 0, 0, 0.05),
+      0px 6px 16px 0px rgba(0, 0, 0, 0.08), 0px 3px 6px -4px rgba(0, 0, 0, 0.12);
+  }
+  
