@@ -1,4 +1,5 @@
 import { FC } from "react";
+import styles from "./Login.module.css";
 
 const Login: FC = () => {
   function handleSubmit(e: React.FormEvent) {
@@ -9,32 +10,34 @@ const Login: FC = () => {
   }
 
   return (
-    <div>
-      <div className="login">
-        <p className="login__welcome">Вход в систему</p>
+    <div className={styles["page-login"]}>
+      <div className={styles.login}>
+        <button
+          className={styles.elements__image}
+          type="button"
+          aria-label="Закрытие попапа"
+        ></button>
+        <p className={styles.login__welcome}>Вход в систему</p>
         <form
           onSubmit={handleSubmit}
           id="login__form"
-          className="login__form"
-          noValidate
+          className={styles.login__form}
         >
           <p className="login__title-input">Логин</p>
           <input
             type="text"
-            className="login__info login__info_form_title"
+            className={`${styles.login__info} ${styles.login__info_form_title}`}
             id="title-input"
             placeholder="login@gmail.com"
-            //   minLength="6"
-            //   maxLength="40"
             //   onChange={handleEmailChange}
             required
           />
-          <span className="span title-input-error"></span>
+          <span className={styles.span}></span>
 
           <p className="login__title-input">Пароль</p>
           <input
             type="password"
-            className="login__info login__info_form_subtitle"
+            className={`${styles.login__info} ${styles.login__info_form_subtitle}`}
             id="subtitle-input"
             placeholder="••••••••"
             //   minLength="6"
@@ -42,8 +45,8 @@ const Login: FC = () => {
             //   onChange={handlePasswordChange}
             required
           />
-          <span className="span subtitle-input-error"></span>
-          <button type="submit" className="login__button-save">
+          <span className={styles.span}></span>
+          <button type="submit" className={styles["login__button-save"]}>
             Войти
           </button>
         </form>
