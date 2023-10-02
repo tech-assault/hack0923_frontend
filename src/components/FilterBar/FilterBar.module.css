@@ -10,4 +10,14 @@
 
 .logo{
     max-width: 151px;
+    margin-bottom: 48px;
+}
+
+.list{
+    margin: 48px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
 }
