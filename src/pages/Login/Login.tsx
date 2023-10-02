@@ -5,6 +5,8 @@ import lenta_logo from '../../vendor/images/lenta_logo.svg'
 const Login: FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
 
   const [passwordErrorMessage, setPasswordErrorMessage] = useState<string | null>(null);
   const [emailErrorMessage, setEmailErrorMessage] = useState<string | null>(null);
@@ -20,8 +22,10 @@ const Login: FC = () => {
   function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
     setEmail(e.target.value);
     if (!e.target.checkValidity()) {
+      setIsEmailValid(false);
       setEmailErrorMessage(e.target.validationMessage);
     } else {
+      setIsEmailValid(true);
       setEmailErrorMessage(null);
     }
 }
@@ -29,9 +33,11 @@ const Login: FC = () => {
 function handlePasswordChange(e: React.ChangeEvent<HTMLInputElement>) {
     setPassword(e.target.value);
     if (!e.target.checkValidity()) {
+      setIsPasswordValid(false);
       setPasswordErrorMessage(e.target.validationMessage);
     } else {
       setPasswordErrorMessage(null);
+      setIsPasswordValid(true);
     }
 }
 
@@ -53,7 +59,7 @@ function handlePasswordChange(e: React.ChangeEvent<HTMLInputElement>) {
           <p className="login__title-input">Логин</p>
           <input
             type="email"
-            className={`${styles.login__info} ${styles.login__info_form_title}`}
+            className={`${styles.login__info} ${styles.login__info_form_title} ${!isEmailValid ? styles.login__info_type_invalid : ''}`}
             id="title-input"
             placeholder="login@gmail.com"
             onChange={handleEmailChange}
@@ -64,7 +70,7 @@ function handlePasswordChange(e: React.ChangeEvent<HTMLInputElement>) {
           <p className="login__title-input">Пароль</p>
           <input
             type="password"
-            className={`${styles.login__info} ${styles.login__info_form_subtitle}`}
+            className={`${styles.login__info} ${styles.login__info_form_subtitle} ${!isPasswordValid ? styles.login__info_type_invalid : ''}`}
             id="subtitle-input"
             placeholder="••••••••"
               minLength={6}
