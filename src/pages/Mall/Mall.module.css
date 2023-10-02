@@ -21,6 +21,14 @@
   background-size: cover;
 }
 
+.logo_type_mall {
+  width: 151px;
+  height: 32px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+
 .span {
   min-height: 40px;
   max-width: 395px;

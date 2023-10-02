@@ -1,6 +1,8 @@
 import { FC, useState } from "react";
 import styles from "./Mall.module.css";
 import { cities, ids } from "../../constants/constants";
+import lenta_logo from '../../vendor/images/lenta_logo.svg'
+
 
 const Mall: FC = () => {
   const [selectedCity, setSelectedCity] = useState("");
@@ -37,6 +39,7 @@ const Mall: FC = () => {
 
   return (
     <div className={styles["page-mall"]}>
+        <img src={lenta_logo} className={`${styles.logo} ${styles.logo_type_mall}`} alt="Лента лого" />
 
       <div className={styles.login}>
       <button

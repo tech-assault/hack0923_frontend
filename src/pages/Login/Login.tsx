@@ -1,7 +1,14 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./Login.module.css";
+import lenta_logo from '../../vendor/images/lenta_logo.svg'
 
 const Login: FC = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState<string | null>(null);
+  const [emailErrorMessage, setEmailErrorMessage] = useState<string | null>(null);
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     // const userEmail = email;
@@ -9,9 +16,29 @@ const Login: FC = () => {
     // handleLogin(userEmail, userPassword);
   }
 
+
+  function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setEmail(e.target.value);
+    if (!e.target.checkValidity()) {
+      setEmailErrorMessage(e.target.validationMessage);
+    } else {
+      setEmailErrorMessage(null);
+    }
+}
+
+function handlePasswordChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setPassword(e.target.value);
+    if (!e.target.checkValidity()) {
+      setPasswordErrorMessage(e.target.validationMessage);
+    } else {
+      setPasswordErrorMessage(null);
+    }
+}
+
   return (
     <div className={styles["page-login"]}>
       <div className={styles.login}>
+      <img src={lenta_logo} className={`${styles.logo} ${styles.logo_type_login}`} alt="Лента лого" />
         <button
           className={styles.elements__image}
           type="button"
@@ -25,14 +52,14 @@ const Login: FC = () => {
         >
           <p className="login__title-input">Логин</p>
           <input
-            type="text"
+            type="email"
             className={`${styles.login__info} ${styles.login__info_form_title}`}
             id="title-input"
             placeholder="login@gmail.com"
-            //   onChange={handleEmailChange}
+            onChange={handleEmailChange}
             required
           />
-          <span className={styles.span}></span>
+          { emailErrorMessage && <span className={styles.span}>{emailErrorMessage}</span> }
 
           <p className="login__title-input">Пароль</p>
           <input
@@ -40,12 +67,12 @@ const Login: FC = () => {
             className={`${styles.login__info} ${styles.login__info_form_subtitle}`}
             id="subtitle-input"
             placeholder="••••••••"
-            //   minLength="6"
-            //   maxLength="200"
-            //   onChange={handlePasswordChange}
+              minLength={6}
+              maxLength={12}
+              onChange={handlePasswordChange}
             required
           />
-          <span className={styles.span}></span>
+          { passwordErrorMessage && <span className={styles.span}>{passwordErrorMessage}</span> }
           <button type="submit" className={styles["login__button-save"]}>
             Войти
           </button>

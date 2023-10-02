@@ -21,15 +21,34 @@
   background-size: cover;
 }
 
+.logo_type_login {
+  width: 251px;
+  height: 54px;
+  position: absolute;
+  top: -68px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.black {
+  color: var(--black, #2C2A29);
+}
+
 .span {
   min-height: 40px;
+  max-width: 395px;
   display: block;
   width: 100%;
   box-sizing: border-box;
+  color: #D90000;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration-line: underline;
 }
 
 .login__welcome {
-  color: #000;
+  color: var(--black, #2C2A29);
   font-size: 36px;
   font-weight: 500;
   line-height: 22px;
@@ -39,7 +58,7 @@
 }
 
 .login__title-input {
-  color: #000;
+  color: var(--black, #2C2A29);
   font-size: 20px;
   font-weight: 400;
   line-height: 22px;
@@ -84,6 +103,7 @@
   cursor: pointer;
   border: none;
   box-sizing: border-box;
+  margin-bottom: 20px;
 }
 
 .login__form {
@@ -94,7 +114,7 @@
 
 .login__button-save {
   color: #fff;
-  margin-top: 10px;
+  margin-top: 30px;
   min-width: 395px;
   text-align: center;
   font-size: 18px;
