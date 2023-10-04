@@ -4,6 +4,7 @@ import FilterBar from '../../components/FilterBar/FilterBar'
 import GraphTypeSelector from '../../components/GraphTypeSelector/GraphTypeSelector'
 import { Link } from 'react-router-dom'
 import icon_logout from './../../vendor/images/icon_logout.svg'
+import Graph from '../../components/Graph/Graph'
 
 const MainPage: FC = () => {
     return (
@@ -16,6 +17,7 @@ const MainPage: FC = () => {
                         <img src={icon_logout} />
                     </Link>
                 </div>
+                <Graph></Graph>
             </div>
         </main>
     )
