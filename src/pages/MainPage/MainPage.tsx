@@ -5,6 +5,7 @@ import Table from '../../components/Table/Table'
 import GraphTypeSelector from '../../components/GraphTypeSelector/GraphTypeSelector'
 import { Link } from 'react-router-dom'
 import icon_logout from './../../vendor/images/icon_logout.svg'
+import Graph from '../../components/Graph/Graph'
 
 const MainPage: FC = () => {
     return (
@@ -18,6 +19,7 @@ const MainPage: FC = () => {
                     </Link>
                 </div>
                 <Table />
+                <Graph></Graph>
             </div>
         </main>
     )
