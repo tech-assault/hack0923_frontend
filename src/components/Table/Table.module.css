@@ -1,153 +1,55 @@
 .table {
     width: 100%;
     border-collapse: collapse;
-    padding-bottom: 15.5px;
-    padding-top: 15.5px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-  }
-  
-  .table__name-container:first-child {
-    border-bottom: 1px solid #dfe1e5;
-  }
-
-  .table__gap {
-    width: 100%;
-    height: 12px;
-    background: #f3f5f6;
-  }
-  
-  .table__gap:last-child {
-    width: 100%;
-    height: 32px;
-  }
-
-  .table__cell-yellow {
-    padding: 4px 8px;
-    color: #ca8a04;
-    background: rgba(234, 179, 8, 0.1);
-    border-radius: 16px;
-    margin: 0;
-    font-family: "Roboto";
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 12px;
-    text-align: center;
-    display: inline-block;
-  }
-
-  .table__cell-red {
-    color: #dc2626;
-    padding: 4px 8px;
-    background: rgba(239, 68, 68, 0.1);
-    border-radius: 16px;
-    margin: 0;
-    font-family: "Roboto";
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 12px;
-    text-align: center;
-    display: inline-block;
-  }
-
-  .table__cell-name {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color: #696c71;
-    margin: 0;
-    padding-top: 17.5px;
-    max-width: 243px;
-    text-align: start;
-  }
-
-  .table__cell-grey {
-    padding: 4px 8px;
-    color: #606c80;
-    background: rgba(108, 108, 108, 0.1);
-    border-radius: 16px;
-    margin: 0;
-    font-family: "Roboto";
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 12px;
-    text-align: center;
-    display: inline-block;
-  }
-
-  .table__cell-green {
-    color: #16a34a;
-    padding: 4px 8px;
-    background: rgba(34, 197, 94, 0.1);
-    border-radius: 16px;
-    margin: 0;
-    font-family: "Roboto";
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 12px;
-    text-align: center;
-    display: inline-block;
-  }
-
-  .table__cell {
-    font-family: "Roboto";
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color: #0e0e0f;
-    max-width: 243px;
-    padding-top: 8px;
-    padding-bottom: 27px;
-  }
-
-  .table__cell_type_line {
-    text-decoration-line: underline;
-  }
-
-  .table-revenue {
-    background: #ffffff;
-    width: 100%;
-    border-collapse: collapse;
+    border-bottom: 1px solid var(--divider, rgba(0, 0, 0, 0.06));
+    background: var(--table-1, #F4F7F9);
     margin-top: 24px;
-  }
 
-  .table-revenue_type_two {
-    margin-top: 12px;
-    border-bottom: none;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  
-  .table-revenue_type_two:last-child {
-    margin-top: 32px;
-  }
-
-  .table-revenue__value-container {
-    padding-left: 32px;
-    padding-right: 32px;
-    border-bottom: 1px solid #dfe1e5;
-  }
-  
-  .table-revenue__value-container:last-child {
-    border-bottom: none;
   }
 
   .table-revenue__name-container {
-    padding-left: 32px;
-    padding-right: 32px;
+    text-align: left;
+    vertical-align: middle;
   }
 
-  .table-revenue__cell-name-container {
-    display: flex;
-    position: relative;
+  .table-revenue {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    text-align: start;
   }
 
-.checkbox {
-  width: 16px;
-  height: 16px;
-}
+  .cell-name {
+    color: #003C96;
+    font-size: 16px;
+    font-weight: 450;
+    line-height: 24px;
+    width: 18%;
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    padding-left: 12px;
+    box-sizing: border-box;
+  }
+
+  .cell-name:nth-child(1) {
+    width: 2.5%;
+  }
+
+  .cell-name:nth-child(2) {
+    width: 6%;
+  }
+
+  .cell-name:last-child {
+    width: 36%;
+    border-right: none;
+  }
+
+  .checkbox {
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+  }
 
 
 

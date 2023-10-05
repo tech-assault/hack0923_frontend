@@ -18,8 +18,8 @@ const MainPage: FC = () => {
                         <img src={icon_logout} />
                     </Link>
                 </div>
-                <Table />
                 <Graph></Graph>
+                <Table />
             </div>
         </main>
     )

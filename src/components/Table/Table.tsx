@@ -10,41 +10,36 @@ const Table: FC = () => {
     <div className={styles.table}>
       <table className={styles["table-revenue"]}>
         <tr className={styles["table-revenue__name-container"]}>
-          <th className="table-revenue__cell-name table-revenue__cell-name_type_two">
+          <th className={`${styles["cell-name"]} ${styles[""]}`}>
               <input type="checkbox" className={styles.checkbox} />
           </th>
           <th
-            className={`${styles["table-revenue__cell-name"]} ${styles["table-revenue__cell-name_type_one"]}`}
-          ></th>
+            className={`${styles["cell-name"]} ${styles[""]}`}
+          >ТК</th>
           <th
-            className={`${styles["table-revenue__cell-name"]} ${styles["table-revenue__cell-name_type_one"]}`}
+             className={`${styles["cell-name"]} ${styles[""]}`}
           >
-            Вид работ
+            Группа
           </th>
           <th
-            className={`${styles["table-revenue__cell-name"]} ${styles["table-revenue__cell-name_type_one"]}`}
+             className={`${styles["cell-name"]} ${styles[""]}`}
           >
-            Ед. изм.
+            Категория
           </th>
           <th
-            className={`${styles["table-revenue__cell-name"]} ${styles["table-revenue__cell-name_type_one"]}`}
+             className={`${styles["cell-name"]} ${styles[""]}`}
           >
-            Объем работ
+           Подкатегория
           </th>
           <th
-            className={`${styles["table-revenue__cell-name"]} ${styles["table-revenue__cell-name_type_one"]} ${styles["table-revenue__cell-name_type_border-bottom"]} ${styles["table-revenue__cell-name_type_border"]}`}
+             className={`${styles["cell-name"]} ${styles[""]}`}
           >
-            Стоимость
+           Товар
           </th>
           <th
-            className={`${styles["table-revenue__cell-name"]} ${styles["table-revenue__cell-name_type_one"]} ${styles["table-revenue__cell-name_type_border"]}`}
+            className={`${styles["cell-name"]} ${styles[""]}`}
           >
-            Итого: доход
-          </th>
-          <th
-            className={`${styles["table-revenue__cell-name"]} ${styles["table-revenue__cell-name_type_one"]}`}
-          >
-            Нал. %
+           Спрос дата/шт
           </th>
         </tr>
       </table>
