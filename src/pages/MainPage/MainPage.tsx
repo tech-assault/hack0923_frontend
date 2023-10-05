@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import styles from './MainPage.module.css'
 import FilterBar from '../../components/FilterBar/FilterBar'
+import Table from '../../components/Table/Table'
 import GraphTypeSelector from '../../components/GraphTypeSelector/GraphTypeSelector'
 import { Link } from 'react-router-dom'
 import icon_logout from './../../vendor/images/icon_logout.svg'
@@ -16,6 +17,7 @@ const MainPage: FC = () => {
                         <img src={icon_logout} />
                     </Link>
                 </div>
+                <Table />
             </div>
         </main>
     )
