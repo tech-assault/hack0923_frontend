@@ -2,23 +2,28 @@
     width: 100%;
     border-collapse: collapse;
     border-radius: 8px;
-    border-bottom: 1px solid var(--divider, rgba(0, 0, 0, 0.06));
     background: var(--table-1, #F4F7F9);
-    margin-top: 24px;
-
   }
 
   .table-revenue__name-container {
     text-align: left;
     vertical-align: middle;
+    border-bottom: 1px solid var(--divider, rgba(0, 0, 0, 0.06));
   }
 
   .table-revenue {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 12px;
-    margin-bottom: 12px;
     text-align: start;
+    height: 49px;
+  }
+
+  .table-item {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: start;
+    background: #FCFDFE;
+    border: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   .cell-name {
@@ -26,23 +31,73 @@
     font-size: 16px;
     font-weight: 450;
     line-height: 24px;
-    width: 18%;
     border-right: 1px solid rgba(0, 0, 0, 0.06);
     padding-left: 12px;
+    width: 240px;
+    max-width: 240px;
     box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
+  .cell-item {
+    color: #2C2A29;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px; 
+    border-right: none;
+    height: 57px;
+  }
+
+  .scrollable {
+    overflow-y: auto;
+    max-height: 500px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .cell-item__data {
+    width: 96x;
+    min-width: 96px;
+    text-align: center;
+    height: 57px;
+    padding-left: 0;
+  }
+
+  .cell-item__data:nth-child(1) {
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } 
+  
+
   .cell-name:nth-child(1) {
-    width: 2.5%;
+    width: 32px;
+    max-width: 32px;
   }
 
   .cell-name:nth-child(2) {
-    width: 6%;
+    width: 100px;
+    max-width: 100px;
   }
 
-  .cell-name:last-child {
-    width: 36%;
+  .cell-name:nth-child(6) {
+    border-right: 1px solid var(--divider, rgba(0, 0, 0, 0.06));
+  }
+
+  /* .cell-name:nth-child(7) {
+    width: 468px;
+    max-width: 468px;
     border-right: none;
+  }  */
+
+  .cell-item__container {
+    width: 468px;
+    max-width: 468px;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 
   .checkbox {
