@@ -15,3 +15,21 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 36px;
+    align-items: center;
+}
+
+.button_excel {
+    background-color: #003C96;
+    border-radius: 8px;
+    border: none;
+    padding: 4px 15px;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
