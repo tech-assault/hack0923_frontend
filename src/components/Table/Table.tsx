@@ -1,9 +1,5 @@
 import { FC } from "react";
 import styles from "./Table.module.css";
-// import FilterBar from "../../components/FilterBar/FilterBar";
-// import GraphTypeSelector from "../../components/GraphTypeSelector/GraphTypeSelector";
-// import { Link } from "react-router-dom";
-// import icon_logout from "./../../vendor/images/icon_logout.svg";
 
 const Table: FC = () => {
   return (
