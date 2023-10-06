@@ -65,7 +65,7 @@ function handlePasswordChange(e: React.ChangeEvent<HTMLInputElement>) {
             onChange={handleEmailChange}
             required
           />
-          { emailErrorMessage && <span className={styles.span}>{emailErrorMessage}</span> }
+          <span className={styles.span}>{emailErrorMessage}</span> 
 
           <p className="login__title-input">Пароль</p>
           <input
@@ -78,7 +78,7 @@ function handlePasswordChange(e: React.ChangeEvent<HTMLInputElement>) {
               onChange={handlePasswordChange}
             required
           />
-          { passwordErrorMessage && <span className={styles.span}>{passwordErrorMessage}</span> }
+          <span className={styles.span}>{passwordErrorMessage}</span>
           <button type="submit" className={styles["login__button-save"]}>
             Войти
           </button>

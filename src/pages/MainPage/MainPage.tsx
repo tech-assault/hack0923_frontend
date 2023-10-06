@@ -22,6 +22,7 @@ const MainPage: FC = () => {
                 <Graph></Graph>
                 <section className={styles.toolbar}>
                     <DaySelector />
+                    <button type='button' className={styles.button_excel}>График</button>
                     <button type='button' className={styles.button_excel}>Выгрузить в Excel</button>
                 </section>
                 <Table />

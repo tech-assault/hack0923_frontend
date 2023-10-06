@@ -15,7 +15,7 @@ const GraphTypeSelector = () => {
                 <button className={`${styles.button} ${selectedButton === 0 && styles.button_selected}`} onClick={() => handleClick(0)}>Прогноз спроса</button>
             </li>
             <li>
-                <button className={`${styles.button} ${selectedButton === 1 && styles.button_selected}`} onClick={() => handleClick(1)}>Качество спроса</button>
+                <button className={`${styles.button} ${selectedButton === 1 && styles.button_selected}`} onClick={() => handleClick(1)}>Качество прогноза</button>
             </li>
         </ul>
     )

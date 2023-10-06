@@ -18,6 +18,10 @@
     background-color: #003C96;
     color: white;
     cursor: pointer;
+    min-width: 252px;
+    opacity: 0.9;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 .button_selected {

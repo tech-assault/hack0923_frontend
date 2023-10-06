@@ -54,19 +54,20 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    padding-bottom: 8px;
 
     &:hover {
         background-color: rgba(0, 0, 0, 0.15);
     }
 
-    &:active {
+    /* &:active {
         background-color: rgba(0, 0, 0, 0.2);
-    }
+    } */
 }
 
-.button_selected {
+/* .button_selected {
     background-color: rgba(0, 0, 0, 0.1);
-}
+} */
 
 .search {
     height: 34px;
