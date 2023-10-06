@@ -6,19 +6,24 @@ import GraphTypeSelector from '../../components/GraphTypeSelector/GraphTypeSelec
 import { Link } from 'react-router-dom'
 import icon_logout from './../../vendor/images/icon_logout.svg'
 import Graph from '../../components/Graph/Graph'
+import DaySelector from '../../components/DaySelector/DaySelector'
 
 const MainPage: FC = () => {
     return (
         <main className={styles.container}>
             <FilterBar />
             <div className={styles.content}>
-                <div className={styles.header}>
+                <section className={styles.header}>
                     <GraphTypeSelector />
                     <Link className={styles.logout} to='./login'>
                         <img src={icon_logout} />
                     </Link>
-                </div>
+                </section>
                 <Graph></Graph>
+                <section className={styles.toolbar}>
+                    <DaySelector />
+                    <button type='button' className={styles.button_excel}>Выгрузить в Excel</button>
+                </section>
                 <Table />
             </div>
         </main>
