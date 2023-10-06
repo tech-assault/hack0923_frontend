@@ -43,42 +43,42 @@ const Table: FC = () => {
               className={`${styles["cell-item__container"]}`}
             >
               <th
-                className={`${styles["cell-name"]} ${styles["cell-item__data"]}`}
+                className={styles["cell-item__data"]}
               >
                 23.09.2023
               </th>
               <th
-                className={`${styles["cell-name"]} ${styles["cell-item__data"]}`}
+                className={styles["cell-item__data"]}
               >
                 24.09.2023
               </th>
               <th
-                className={`${styles["cell-name"]} ${styles["cell-item__data"]}`}
+                className={styles["cell-item__data"]}
               >
                 25.09.2023
               </th>
               <th
-                className={`${styles["cell-name"]} ${styles["cell-item__data"]}`}
+                className={styles["cell-item__data"]}
               >
                 26.09.2023
               </th>
               <th
-                className={`${styles["cell-name"]} ${styles["cell-item__data"]}`}
+                className={styles["cell-item__data"]}
               >
                 27.09.2023
               </th>
               <th
-                className={`${styles["cell-name"]} ${styles["cell-item__data"]}`}
+                className={styles["cell-item__data"]}
               >
                 28.09.2023
               </th>
               <th
-                className={`${styles["cell-name"]} ${styles["cell-item__data"]}`}
+                className={styles["cell-item__data"]}
               >
                 29.09.2023
               </th>
               <th
-                className={`${styles["cell-name"]} ${styles["cell-item__data"]}`}
+                className={styles["cell-item__data"]}
               >
                 30.09.2023
               </th>

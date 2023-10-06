@@ -26,6 +26,33 @@
     border: 1px solid rgba(0, 0, 0, 0.06);
   }
 
+  .cell-item {
+    color: #2C2A29;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px; 
+    border-right: none;
+    height: 57px;
+  }
+
+  .scrollable {
+    overflow-y: auto;
+    overflow-x: auto;
+    max-width: 1560px;
+    max-height: 500px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+
+  /* .cell-item__data:nth-child(1) {
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }  */
+
+
   .cell-name {
     color: #003C96;
     font-size: 16px;
@@ -33,7 +60,7 @@
     line-height: 24px;
     border-right: 1px solid rgba(0, 0, 0, 0.06);
     padding-left: 12px;
-    width: 240px;
+    min-width: 240px;
     max-width: 240px;
     box-sizing: border-box;
     white-space: nowrap;
@@ -50,44 +77,28 @@
     height: 57px;
   }
 
-  .scrollable {
-    overflow-y: auto;
-    overflow-x: auto;
-    max-width: 1300px;
-    max-height: 500px;
-    margin-top: 24px;
-    margin-bottom: 24px;
+  .cell-item__container {
+    color: #003C96;
   }
 
-
-  /* Тут задала просто максимальные значения для скролла */
-
-  /* .cell-item__container {
-  } */
-
   .cell-item__data {
-    width: 96x;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
     min-width: 96px;
+    max-width: 96px;
     text-align: center;
     height: 57px;
     padding-left: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
   }
 
-  .cell-item__data:nth-child(1) {
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  } 
-  
-
   .cell-name:nth-child(1) {
-    width: 32px;
-    max-width: 32px;
+    min-width: 32px;
   }
 
   .cell-name:nth-child(2) {
-    width: 100px;
+    min-width: 100px;
     max-width: 100px;
   }
 
@@ -99,7 +110,7 @@
     width: 16px;
     height: 16px;
     margin-top: 5px;
-    margin-right: 10px;
+    margin-right: 12px;
   }
 
 
