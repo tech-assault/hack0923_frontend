@@ -43,7 +43,7 @@ const Table: FC = () => {
             <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}`}
             ></th>
-            <div
+            <th
               className={`${styles["cell-name"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -86,7 +86,7 @@ const Table: FC = () => {
               >
                 30.09.2023
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -108,7 +108,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -151,7 +151,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -173,7 +173,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -216,7 +216,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -238,7 +238,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -281,7 +281,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -303,7 +303,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -346,7 +346,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -368,7 +368,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -411,7 +411,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -433,7 +433,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -476,7 +476,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -498,7 +498,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -541,7 +541,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -563,7 +563,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -606,7 +606,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -628,7 +628,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -671,7 +671,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -693,7 +693,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -736,7 +736,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -758,7 +758,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -801,7 +801,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -823,7 +823,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -866,7 +866,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -888,7 +888,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -931,7 +931,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -953,7 +953,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -996,7 +996,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -1018,7 +1018,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -1061,7 +1061,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -1083,7 +1083,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -1126,7 +1126,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -1148,7 +1148,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -1191,7 +1191,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -1213,7 +1213,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -1256,7 +1256,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
 
           <tr className={styles["table-revenue__name-container"]}>
@@ -1278,7 +1278,7 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <div
+            <th
               className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
             >
               <th
@@ -1321,7 +1321,7 @@ const Table: FC = () => {
               >
                 10 шт
               </th>
-            </div>
+            </th>
           </tr>
         </tbody>
       </table>
