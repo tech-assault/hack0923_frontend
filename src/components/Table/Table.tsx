@@ -40,7 +40,7 @@ const Table: FC = () => {
               className={`${styles["cell-name"]} ${styles["cell-item"]}`}
             ></th>
             <th
-              className={`${styles["cell-name"]}  ${styles["cell-item__container"]}`}
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-name"]} ${styles["cell-item__data"]}`}
@@ -104,8 +104,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -169,8 +169,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -234,8 +234,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -299,8 +299,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -364,8 +364,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -429,8 +429,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -494,8 +494,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -559,8 +559,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -624,8 +624,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -689,8 +689,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -754,8 +754,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -819,8 +819,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -884,8 +884,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -949,8 +949,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -1014,8 +1014,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -1079,8 +1079,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -1144,8 +1144,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -1209,8 +1209,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
@@ -1274,8 +1274,8 @@ const Table: FC = () => {
             <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
               Цыпленок гриль, весовой
             </th>
-            <th
-              className={`${styles["cell-name"]} ${styles["cell-item"]}  ${styles["cell-item__container"]}`}
+           <th
+              className={`${styles["cell-item__container"]}`}
             >
               <th
                 className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
