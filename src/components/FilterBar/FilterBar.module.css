@@ -6,6 +6,7 @@
     padding: 24px;
     background-color: #F2F8FF;
     box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 .logo{
