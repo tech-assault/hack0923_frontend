@@ -1,21 +1,18 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import styles from "./Table.module.css";
 import TableDemand from "../TableDemand/TableDemand";
 import TableQuality from "../TableQuality/TableQuality";
+import { useSelector } from '../../hooks/useSelector'
 
 const Table: FC = () => {
 
-  const [DemandForecast, setDemandForecast] = useState(false);
-  const [ForecastQuality, setForecastQuality] = useState(true);
+  const graphType = useSelector((store) => store.MainPage.graphType);
 
   return (
     <div className={styles.scrollable}>
       <table className={styles.table}>
-      {DemandForecast ? (
-       <TableDemand />
-      ) : ForecastQuality ? (
-      <TableQuality />
-      ) : null}
+      {graphType === "demand" && <TableDemand />}
+      {graphType === "quality" && <TableQuality />}
       </table>
     </div>
   );
