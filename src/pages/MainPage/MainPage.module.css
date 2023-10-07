@@ -37,3 +37,22 @@
     cursor: pointer;
     opacity: 0.9;
 }
+
+.button_excel_type_blue {
+    background-color:#C0D8FC;
+    margin-right: 16px;
+    opacity: 1;
+    color: #001E64;
+    display: flex;
+    align-items: center;
+}
+
+.button__container {
+display: flex;
+}
+
+.icon_chart {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}

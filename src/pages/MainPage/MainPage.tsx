@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import icon_logout from './../../vendor/images/icon_logout.svg'
 import Graph from '../../components/Graph/Graph'
 import DaySelector from '../../components/DaySelector/DaySelector'
+import icon_chart from '../../vendor/images/chart.svg'
 
 const MainPage: FC = () => {
     return (
@@ -22,8 +23,13 @@ const MainPage: FC = () => {
                 <Graph></Graph>
                 <section className={styles.toolbar}>
                     <DaySelector />
-                    <button type='button' className={styles.button_excel}>График</button>
+                    <div className={styles.button__container}>
+                    <button type='button' className={`${styles.button_excel} ${styles.button_excel_type_blue}`}>
+                    <img src={icon_chart} className={styles.icon_chart} alt="Иконка графика" />
+                    График
+                    </button>
                     <button type='button' className={styles.button_excel}>Выгрузить в Excel</button>
+                    </div>
                 </section>
                 <Table />
             </div>
