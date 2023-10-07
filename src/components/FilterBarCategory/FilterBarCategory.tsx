@@ -35,7 +35,7 @@ const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, se
 
     return (
         <div className={styles.container}>
-            <button className={`${styles.button} ${openedFilter === title ? styles.button_selected : ''}`} onClick={handleClick}>
+            <button className={styles.button} onClick={handleClick}>
                 {title}
                 {openedFilter === title ? (//arrow icon direction
                     <img src={icon_arrow_down} />
