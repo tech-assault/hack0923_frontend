@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styles from './FilterBar.module.css'
-import lenta_logo from '../../vendor/images/lenta_logo.svg'
+import lenta_logo_blue from '../../vendor/images/lenta_logo_blue.svg'
 import FilterBarCategory from '../FilterBarCategory/FilterBarCategory'
 
 export type filterType = 'ТК' | 'Группа' | 'Категория' | 'Подкатегория' | 'Товар' | null
@@ -11,7 +11,7 @@ const FilterBar = () => {
 
   return (
     <section className={styles.section}>
-      <img src={lenta_logo} className={styles.logo} alt="Лента лого" />
+      <img src={lenta_logo_blue} className={styles.logo} alt="Лента лого" />
       <ul className={styles.list}>
         <li><FilterBarCategory title='ТК' openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} /></li>
         <li><FilterBarCategory title='Группа' openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} /></li>
