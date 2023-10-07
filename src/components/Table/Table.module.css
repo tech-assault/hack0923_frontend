@@ -5,35 +5,6 @@
     background: var(--table-1, #F4F7F9);
   }
 
-  .table-revenue__name-container {
-    text-align: left;
-    vertical-align: middle;
-    border-bottom: 1px solid var(--divider, rgba(0, 0, 0, 0.06));
-  }
-
-  .table-revenue {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: start;
-    height: 49px;
-  }
-
-  .table-item {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: start;
-    background: #FCFDFE;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-  }
-
-  .cell-item {
-    color: #2C2A29;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px; 
-    border-right: none;
-    height: 57px;
-  }
 
   .scrollable {
     overflow-y: auto;
@@ -43,80 +14,6 @@
     margin-top: 24px;
     margin-bottom: 24px;
   }
-
-
-  /* .cell-item__data:nth-child(1) {
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }  */
-
-
-  .cell-name {
-    color: #003C96;
-    font-size: 16px;
-    font-weight: 450;
-    line-height: 24px;
-    border-right: 1px solid rgba(0, 0, 0, 0.06);
-    padding-left: 12px;
-    min-width: 240px;
-    max-width: 240px;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .cell-item {
-    color: #2C2A29;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px; 
-    border-right: none;
-    height: 57px;
-  }
-
-  .cell-item__container {
-    color: #003C96;
-  }
-
-  .cell-item__data {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    min-width: 96px;
-    max-width: 96px;
-    text-align: center;
-    height: 57px;
-    padding-left: 0;
-    border-right: 1px solid rgba(0, 0, 0, 0.06);
-  }
-
-  .cell-name:nth-child(1) {
-    min-width: 32px;
-  }
-
-  .cell-name:nth-child(2) {
-    min-width: 100px;
-    max-width: 100px;
-  }
-
-  .cell-name:nth-child(6) {
-    border-right: 1px solid var(--divider, rgba(0, 0, 0, 0.06));
-  }
-
-  .checkbox {
-    width: 16px;
-    height: 16px;
-    margin-top: 5px;
-    margin-right: 12px;
-  }
-
-
-
-  
-  
   
   
 

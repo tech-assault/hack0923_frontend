@@ -1,0 +1,114 @@
+.table-revenue__name-container {
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--divider, rgba(0, 0, 0, 0.06));
+}
+
+.table-revenue {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: start;
+  height: 49px;
+}
+
+.table-item {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: start;
+  background: #fcfdfe;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.cell-item {
+  color: #2c2a29;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  border-right: none;
+  height: 57px;
+}
+
+.cell-name {
+  color: #003c96;
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 24px;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  padding-left: 12px;
+  min-width: 240px;
+  max-width: 240px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cell-item {
+  color: #2c2a29;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  border-right: none;
+  height: 57px;
+}
+
+.cell-item__container {
+  color: #003c96;
+}
+
+.cell-item__data {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  min-width: 162px;
+  max-width: 162px;
+  text-align: start;
+  height: 57px;
+  padding-left: 12px;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+.cell-item__data:nth-child(2n) {
+  border-right: none;
+}
+
+.cell-name:nth-child(1) {
+  min-width: 32px;
+}
+
+.cell-name:nth-child(2) {
+  min-width: 100px;
+  max-width: 100px;
+}
+
+.cell-name:nth-child(7) {
+  border-right: 1px solid var(--divider, rgba(0, 0, 0, 0.06));
+  min-width: 84px;
+  max-width: 84px;
+}
+
+.cell-name_type_week {
+  min-width: 324px;
+  max-width: 324px;
+  border-right: none;
+}
+
+.cell-item__unit {
+  min-width: 64px;
+  max-width: 64px;
+  text-align: center;
+}
+
+.cell-item__amount {
+  min-width: 98px;
+  max-width: 98px;
+  text-align: center;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  margin-top: 5px;
+  margin-right: 12px;
+}
