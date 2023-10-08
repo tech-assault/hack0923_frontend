@@ -11,11 +11,15 @@ type InitialState = {
     isMallPopupVisible: boolean
 }
 
+const today = new Date();
+const twoWeeksFromNow = new Date();
+twoWeeksFromNow.setDate(today.getDate() + 14);
+
 const initialState: InitialState = {
     graphType: 'demand',
     timeRange: {
-        from: new Date,
-        to: new Date,
+        from: today,
+        to: twoWeeksFromNow,
     },
     isMallPopupVisible: true
 }
