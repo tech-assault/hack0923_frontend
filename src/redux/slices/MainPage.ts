@@ -7,7 +7,8 @@ type InitialState = {
     timeRange: {
         from: Date,
         to: Date,
-    }
+    },
+    isMallPopupVisible: boolean
 }
 
 const initialState: InitialState = {
@@ -15,7 +16,8 @@ const initialState: InitialState = {
     timeRange: {
         from: new Date,
         to: new Date,
-    }
+    },
+    isMallPopupVisible: true
 }
 
 export const slice = createSlice({
@@ -25,10 +27,16 @@ export const slice = createSlice({
         selectGraphType: (state, { payload }: PayloadAction<GraphType>) => {
             state.graphType = payload
         },
+        openMallPopup: (state) => {
+            state.isMallPopupVisible = true;
+        },
+        closeMallPopup: (state) => {
+            state.isMallPopupVisible = false;
+        }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { selectGraphType } = slice.actions
+export const { selectGraphType, openMallPopup, closeMallPopup } = slice.actions
 
 export default slice.reducer

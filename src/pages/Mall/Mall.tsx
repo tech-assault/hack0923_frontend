@@ -3,8 +3,11 @@ import styles from "./Mall.module.css";
 import { cities, ids } from "../../constants/constants";
 import lenta_logo from '../../vendor/images/lenta_logo.svg'
 
+type MallProps = {
+  onClose: () => void;
+}
 
-const Mall: FC = () => {
+const Mall: FC<MallProps> = ({ onClose }) => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedId, setSelectedId] = useState("");
 
@@ -42,7 +45,7 @@ const Mall: FC = () => {
         <img src={lenta_logo} className={`${styles.logo} ${styles.logo_type_mall}`} alt="Лента лого" />
 
       <div className={styles.login}>
-      <button
+      <button onClick={onClose}
            className={styles.elements__image}
           type="button"
           aria-label="Закрытие попапа"
