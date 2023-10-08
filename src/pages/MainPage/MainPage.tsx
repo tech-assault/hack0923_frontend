@@ -9,7 +9,7 @@ import Graph from "../../components/Graph/Graph";
 import DaySelector from "../../components/DaySelector/DaySelector";
 import icon_chart from "../../vendor/images/chart.svg";
 import Mall from "../Mall/Mall";
-import { useDispatch } from "react-redux";
+import { useDispatch } from "../../hooks/useDispatch";
 import { useSelector } from "../../hooks/useSelector";
 import { closeMallPopup, openMallPopup } from "../../redux/slices/MainPage";
 
@@ -18,6 +18,7 @@ const MainPage: FC = () => {
     (store) => store.MainPage.isMallPopupVisible
   );
   const dispatch = useDispatch();
+//   const [cities, setCities] = useState([]);
 
   useEffect(() => {
     dispatch(openMallPopup());
@@ -26,6 +27,20 @@ const MainPage: FC = () => {
   const handleClose = () => {
     dispatch(closeMallPopup());
   };
+
+//   function loadCities() {
+//     return mainApi
+//       .getStores()
+//       .then((res) => {
+//         setCities(data);
+//         localStorage.setItem("mall", res.token);
+//       })
+//       .catch((error) => {
+//         console.log(error.message);
+//         // setServerError(error); // Установка ошибки
+//         throw error;
+//       });
+//   }
 
   return (
     <>
