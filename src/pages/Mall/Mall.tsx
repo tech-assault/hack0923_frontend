@@ -1,34 +1,34 @@
 import { FC, useState, useEffect } from "react";
 import styles from "./Mall.module.css";
-import { cities, ids } from "../../constants/constants";
+// import { cities, ids } from "../../constants/constants";
 import lenta_logo from "../../vendor/images/lenta_logo.svg";
 import { useDispatch } from "../../hooks/useDispatch";
 import { useSelector } from "../../hooks/useSelector";
-import { fetchStores } from "../../redux/thunks/storesThunks";
+import { fetchStores } from "../../redux/thunks/shopsThunks";
 
 type MallProps = {
   onClose: () => void;
 };
 
 const Mall: FC<MallProps> = ({ onClose }) => {
+  const stores = useSelector((state) => state.shops.stores);
+  const storeCities = stores ? stores.map(shop => shop.city) : [];
+  const storeIds = stores ? stores.map(shop => shop.store) : [];
+
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedId, setSelectedId] = useState("");
 
   const [dropdownVisibleCity, setDropdownVisibleCity] = useState(false);
   const [dropdownVisibleId, setDropdownVisibleId] = useState(false);
 
-  const [filteredCities, setFilteredCities] = useState(cities);
-  const [filteredIds, setFilteredIds] = useState(ids);
+  const [filteredCities, setFilteredCities] = useState(storeCities);
+  const [filteredIds, setFilteredIds] = useState(storeIds);
 
   const [idErrorMessage, setIdErrorMessage] = useState<string | null>(null);
 
   const dispatch = useDispatch();
 
-  const stores = useSelector((state) => state.stores.stores);
-
   console.log(stores, 'STORES');
-  const loading = useSelector((state) => state.stores.loading);
-  const error = useSelector((state) => state.stores.error);
 
   useEffect(() => {
     dispatch(fetchStores());
@@ -47,7 +47,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
   const handleCityInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedCity(e.target.value);
     setFilteredCities(
-      cities.filter((city) =>
+      storeCities.filter((city) =>
         city.toLowerCase().includes(e.target.value.toLowerCase())
       )
     );
@@ -55,7 +55,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
 
   const handleIdInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedId(e.target.value);
-    setFilteredIds(ids.filter((id) => id.includes(e.target.value)));
+    setFilteredIds(storeIds.filter((id) => id.includes(e.target.value)));
 
     if (!e.target.checkValidity()) {
       setIdErrorMessage(e.target.validationMessage);
@@ -95,7 +95,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
             <input
               type="text"
               value={selectedCity}
-              onChange={handleCityInputChange} // добавлен обработчик
+              onChange={handleCityInputChange}
               onClick={() => setDropdownVisibleCity(!dropdownVisibleCity)}
               className={`${styles.login__info} ${styles.login__info_form_title}`}
               placeholder="Москва"
