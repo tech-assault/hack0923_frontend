@@ -18,7 +18,6 @@ const MainPage: FC = () => {
     (store) => store.MainPage.isMallPopupVisible
   );
   const dispatch = useDispatch();
-//   const [cities, setCities] = useState([]);
 
   useEffect(() => {
     dispatch(openMallPopup());
@@ -27,20 +26,6 @@ const MainPage: FC = () => {
   const handleClose = () => {
     dispatch(closeMallPopup());
   };
-
-//   function loadCities() {
-//     return mainApi
-//       .getStores()
-//       .then((res) => {
-//         setCities(data);
-//         localStorage.setItem("mall", res.token);
-//       })
-//       .catch((error) => {
-//         console.log(error.message);
-//         // setServerError(error); // Установка ошибки
-//         throw error;
-//       });
-//   }
 
   return (
     <>

@@ -19,12 +19,12 @@ class MainApi {
       }).then(this._getResponseData)
     }
 
-    getStores() {
-      return fetch(`${this._baseUrl}/api/stores/`, {
-        method: 'GET',
-        headers: this._headers,
-      }).then(this._getResponseData)
-    }
+    // getStores() {
+    //   return fetch(`${this._baseUrl}/api/stores/`, {
+    //     method: 'GET',
+    //     headers: this._headers,
+    //   }).then(this._getResponseData)
+    // }
 
     getForecast() {
       return fetch(`${this._baseUrl}/api/forecast/`, {

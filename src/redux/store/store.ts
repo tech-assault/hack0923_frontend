@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import MainPage from '../slices/MainPage'
+import storesReducer from '../slices/StoresSlice';
 
 export const store = configureStore({
   reducer: {
     MainPage: MainPage,
+    stores: storesReducer,
   },
 })
 

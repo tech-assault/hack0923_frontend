@@ -20,4 +20,7 @@ const cities = [
     "fst56ju65drt2",
     "fst56jk90drt7",
   ];
-   export {cities, ids};
+
+  const BASE_URL = 'http://localhost';
+
+   export {cities, ids, BASE_URL};
