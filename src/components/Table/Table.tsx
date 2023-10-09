@@ -9,12 +9,12 @@ const Table: FC = () => {
   const graphType = useSelector((store) => store.MainPage.graphType);
 
   return (
-    <div className={styles.scrollable}>
+    <section className={styles.scrollable}>
       <table className={styles.table}>
       {graphType === "demand" && <TableDemand />}
       {graphType === "quality" && <TableQuality />}
       </table>
-    </div>
+    </section>
   );
 };
 
