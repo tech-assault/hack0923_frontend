@@ -192,13 +192,13 @@ const TableQuality: FC = () => {
       <th className={styles["cell-name"]}>Подкатегория</th>
       <th className={styles["cell-name"]}>Товар</th>
       <th className={styles["cell-name"]}>Ед. изм.</th>
-      <th className={styles["cell-name"]}>День</th>
-      <th className={styles["cell-name"]}>Неделя</th>
+      <th className={`${styles["cell-name"]} ${styles["cell-name_type_week"]}`}>День</th>
+      <th className={`${styles["cell-name"]} ${styles["cell-name_type_week"]}`}>Неделя</th>
     </tr>
   </thead>
   <tbody className={styles["table-item"]}>
 
-    <tr className={styles["table-revenue__name-container"]}>
+    <tr className={`${styles["table-revenue__name-container"]} ${styles["table-revenue_type_more-size"]}`}>
       <th
         className={`${styles["cell-name"]} ${styles["cell-item"]}`}
       ></th>
@@ -215,30 +215,30 @@ const TableQuality: FC = () => {
          className={`${styles["cell-name"]} ${styles["cell-item"]}`}
       ></th>
       <th
-       className={`${styles["cell-name"]} ${styles["cell-name_type_week"]}`}
+         className={`${styles["cell-name"]} ${styles["cell-item"]}`}
       ></th>
-       <th
-       className={`${styles["cell-name"]} ${styles["cell-name_type_week"]}`}
+        <th
+         className={`${styles["cell-name"]} ${styles["cell-item"]}`}
       ></th>
-      <th className={styles["cell-item__container"]}>
-          <th className={styles["cell-item__data"]}>
+      <td className={styles["cell-item__container"]}>
+          <div className={styles["cell-item__data"]}>
             Продажа факт
-          </th>
-          <th className={styles["cell-item__data"]}>
+          </div>
+          <div className={styles["cell-item__data"]}>
            Прогноз
-          </th>
-      </th>
-      <th className={styles["cell-item__container"]}>
-          <th className={styles["cell-item__data"]}>
+          </div>
+      </td>
+      <td className={styles["cell-item__container"]}>
+          <div className={styles["cell-item__data"]}>
           Продажа факт
-          </th>
-          <th className={styles["cell-item__data"]}>
+          </div>
+          <div className={styles["cell-item__data"]}>
           Прогноз
-          </th>
-      </th>
+          </div>
+      </td>
     </tr>
     {items.map((item, index) => (
-      <tr key={index} className={styles["table-revenue__name-container"]}>
+       <tr  key={index} className={`${styles["table-revenue__name-container"]} ${styles["table-revenue_type_more-size"]}`}>
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
           <input type="checkbox" className={styles.checkbox} />
         </th>
@@ -260,47 +260,47 @@ const TableQuality: FC = () => {
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
           {item.unit}
         </th>
-        <th className={`${styles["cell-item__container"]}`}>
-            <th
+        <td className={`${styles["cell-item__container"]}`}>
+            <div
               className={`${styles["cell-item"]} ${styles["cell-item__unit"]}`}
             >
             {item.day.sale.unit}
-            </th>
-            <th
+            </div>
+            <div
               className={`${styles["cell-item"]} ${styles["cell-item__amount"]}`}
             >{item.day.sale.amount}
-            </th>
-            <th
+            </div>
+            <div
               className={`${styles["cell-item"]} ${styles["cell-item__unit"]}`}
             >
             {item.day.forecast.unit}
-            </th>
-            <th
+            </div>
+            <div
               className={`${styles["cell-item"]} ${styles["cell-item__amount"]}`}
             >{item.day.forecast.amount}
-            </th>
-        </th>
+            </div>
+        </td>
 
-        <th className={`${styles["cell-item__container"]}`}>
-            <th
+        <td className={`${styles["cell-item__container"]}`}>
+            <div
               className={`${styles["cell-item"]} ${styles["cell-item__unit"]}`}
             >
             {item.week.sale.unit}
-            </th>
-            <th
+            </div>
+            <div
               className={`${styles["cell-item"]} ${styles["cell-item__amount"]}`}
             >{item.week.sale.amount}
-            </th>
-            <th
+            </div>
+            <div
               className={`${styles["cell-item"]} ${styles["cell-item__unit"]}`}
             >
             {item.week.forecast.unit}
-            </th>
-            <th
+            </div>
+            <div
               className={`${styles["cell-item"]} ${styles["cell-item__amount"]}`}
             >{item.week.forecast.amount}
-            </th>
-        </th>
+            </div>
+        </td>
       </tr>
     ))}
   </tbody>

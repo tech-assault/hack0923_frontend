@@ -262,13 +262,13 @@ const TableDemand: FC = () => {
       <th
         className={`${styles["cell-name"]} ${styles["cell-item"]}`}
       ></th>
-      <th className={`${styles["cell-item__container"]}`}>
+      <td className={`${styles["cell-item__container"]}`}>
         {dates.map((date, dateIndex) => (
-          <th key={dateIndex} className={styles["cell-item__data"]}>
+          <div key={dateIndex} className={styles["cell-item__data"]}>
             {date}
-          </th>
+          </div>
         ))}
-      </th>
+      </td>
     </tr>
 
     {items.map((item, index) => (

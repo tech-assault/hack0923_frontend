@@ -1,4 +1,7 @@
 .table-revenue__name-container {
+  display: flex;
+  height: 49px;
+  align-items: center;
   text-align: left;
   vertical-align: middle;
   border-bottom: 1px solid var(--divider, rgba(0, 0, 0, 0.06));
@@ -9,6 +12,10 @@
   border-collapse: collapse;
   text-align: start;
   height: 49px;
+}
+
+.table-revenue_type_more-size {
+  height: 57px;
 }
 
 .table-item {
@@ -50,13 +57,19 @@
   line-height: 24px;
   border-right: none;
   height: 57px;
+  padding-top: 16px;
+  box-sizing: border-box;
 }
 
 .cell-item__container {
+  display: flex;
+  flex-direction: row;
   color: #003c96;
 }
 
 .cell-item__data {
+  padding-top: 16px;
+  box-sizing: border-box;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -74,7 +87,8 @@
 }
 
 .cell-name:nth-child(1) {
-  min-width: 32px;
+  box-sizing: border-box;
+  min-width: 41px;
 }
 
 .cell-name:nth-child(2) {
@@ -101,6 +115,8 @@
 }
 
 .cell-item__amount {
+  padding-top: 16px;
+  box-sizing: border-box;
   min-width: 98px;
   max-width: 98px;
   text-align: center;
