@@ -38,6 +38,13 @@
     }
 }
 
+.input_label_text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
 .input_checkbox {
     height: 16px;
     width: 16px;

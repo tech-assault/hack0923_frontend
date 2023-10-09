@@ -4,6 +4,18 @@ type GetShopResponse = {
   data: Shop[]
 }
 
+type GetProductsResponse = {
+  data: Product[]
+}
+
+type Product = {
+  sku: string,
+  group: string,
+  category: string,
+  subcategory: string,
+  uom: string,
+}
+
 type Shop = {
   store: string;
   city: string;
@@ -22,9 +34,12 @@ export const API = createApi({
     getShops: builder.query<GetShopResponse, void>({
       query: () => 'shops/',
     }),
+    getProducts: builder.query<GetProductsResponse, void>({
+      query: () => 'categories/',
+    }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetShopsQuery } = API
+export const { useGetShopsQuery, useGetProductsQuery } = API
