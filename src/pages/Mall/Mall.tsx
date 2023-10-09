@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect, useMemo } from "react";
 import styles from "./Mall.module.css";
 // import { cities, ids } from "../../constants/constants";
 import lenta_logo from "../../vendor/images/lenta_logo.svg";
@@ -12,8 +12,8 @@ const Mall: FC<MallProps> = ({ onClose }) => {
 
   const { data, isSuccess } = useGetShopsQuery()
 
-  const storeCities = isSuccess ? data.data.map(shop => shop.city) : [];
-  const storeIds = isSuccess ? data.data.map(shop => shop.store) : [];
+  const storeCities = useMemo(() => isSuccess && data.data ? data.data.map(shop => shop.city) : [], [isSuccess, data]);
+  const storeIds = useMemo(() => isSuccess && data.data ? data.data.map(shop => shop.store) : [], [isSuccess, data]);
 
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedId, setSelectedId] = useState("");
@@ -21,10 +21,18 @@ const Mall: FC<MallProps> = ({ onClose }) => {
   const [dropdownVisibleCity, setDropdownVisibleCity] = useState(false);
   const [dropdownVisibleId, setDropdownVisibleId] = useState(false);
 
-  const [filteredCities, setFilteredCities] = useState(storeCities);
-  const [filteredIds, setFilteredIds] = useState(storeIds);
+  const [filteredCities, setFilteredCities] = useState<string[]>([]);
+  const [filteredIds, setFilteredIds] = useState<string[]>([]);
 
   const [idErrorMessage, setIdErrorMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    setFilteredCities(storeCities);
+  }, [storeCities]);
+
+  useEffect(() => {
+    setFilteredIds(storeIds);
+  }, [storeIds]);
 
   function handleCityClick(city: string) {
     setSelectedCity(city);
