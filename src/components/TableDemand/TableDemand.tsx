@@ -1,7 +1,8 @@
 import { FC } from "react";
 import styles from "./TableDemand.module.css";
 import { useSelector } from "../../hooks/useSelector";
-import { useGetProductsQuery } from "../../redux/slices/API";
+import { useGetProductsQuery, useGetShopsQuery } from "../../redux/slices/API";
+
 
 const TableDemand: FC = () => {
 
@@ -32,215 +33,10 @@ const datesArray = generateFormattedDatesBetween(timeFrom, timeTo);
 
 const {data, isLoading} = useGetProductsQuery();
 
-console.log(data);
+const items = !isLoading && data ? data.data : [];
 
-    
-      const items = [
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Кулинария «Лента»",
-          subCategory: "Гриль",
-          product: "Цыпленок гриль, весовой",
-          demand: [
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-          ],
-        },
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Кулинария «Лента»",
-          subCategory: "Гриль",
-          product: "Цыпленок гриль, весовой",
-          demand: [
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-          ],
-        },
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Кулинария «Лента»",
-          subCategory: "Гриль",
-          product: "Цыпленок гриль, весовой",
-          demand: [
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-          ],
-        },
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Кулинария «Лента»",
-          subCategory: "Гриль",
-          product: "Цыпленок гриль, весовой",
-          demand: [
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-          ],
-        },
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Кулинария «Лента»",
-          subCategory: "Гриль",
-          product: "Цыпленок гриль, весовой",
-          demand: [
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-          ],
-        },
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Кулинария «Лента»",
-          subCategory: "Гриль",
-          product: "Говядина, весовой",
-          demand: [
-            "3 шт",
-            "5 шт",
-            "15 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-          ],
-        },
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Мясо",
-          subCategory: "Гриль",
-          product: "Цыпленок гриль, весовой",
-          demand: [
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-          ],
-        },
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Кулинария «Лента»",
-          subCategory: "Гриль",
-          product: "Цыпленок гриль, весовой",
-          demand: [
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-          ],
-        },
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Кулинария «Лента»",
-          subCategory: "Гриль",
-          product: "Цыпленок гриль, весовой",
-          demand: [
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-          ],
-        },
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Кулинария «Лента»",
-          subCategory: "Гриль",
-          product: "Цыпленок гриль, весовой",
-          demand: [
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-          ],
-        },
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Кулинария «Лента»",
-          subCategory: "Гриль",
-          product: "Цыпленок гриль, весовой",
-          demand: [
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-          ],
-        },
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Кулинария «Лента»",
-          subCategory: "Гриль",
-          product: "Цыпленок гриль, весовой",
-          demand: [
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-            "10 шт",
-          ],
-        },
-      ];
+// const { data: shopsData, isSuccess } = useGetShopsQuery();
+
    
   return (
     <>
@@ -293,8 +89,13 @@ console.log(data);
           <input type="checkbox" className={styles.checkbox} />
         </th>
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
-          {item.tk}
-        </th>
+          {/* {isSuccess && shopsData 
+          ? shopsData.shops.map((shop, dateIndex) => (
+              <div key={dateIndex}>{shop.store}</div>
+            ))
+          : 'Loading...'} */}
+          </th>
+
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
           {item.group}
         </th>
@@ -302,21 +103,20 @@ console.log(data);
           {item.category}
         </th>
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
-          {item.subCategory}
+          {item.subcategory}
         </th>
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
-          {item.product}
+          {item.sku}
         </th>
-        <td className={`${styles["cell-item__container"]}`}>
-          {datesArray.map((date, dateIndex) => (
-            <div
-              key={dateIndex}
+        <th className={`${styles["cell-item__container"]}`}>
+         
+            <th
+              // key={dateIndex}
               className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
             >
-              {item.demand[dateIndex]}
-            </div>
-          ))}
-        </td>
+              {item.uom}
+            </th>
+        </th>
       </tr>
     ))}
   </tbody>
