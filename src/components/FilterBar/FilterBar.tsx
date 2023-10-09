@@ -13,11 +13,11 @@ const FilterBar = () => {
     <section className={styles.section}>
       <img src={lenta_logo_blue} className={styles.logo} alt="Лента лого" />
       <ul className={styles.list}>
-        <li><FilterBarCategory title='ТК' openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} typeOfFilter='sku' /></li>
+        <li><FilterBarCategory title='ТК' openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} typeOfFilter='shops' /></li>
         <li><FilterBarCategory title='Группа' openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} typeOfFilter='group' /></li>
         <li><FilterBarCategory title='Категория' openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} typeOfFilter='category' /></li>
         <li><FilterBarCategory title='Подкатегория' openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} typeOfFilter='subcategory' /></li>
-        <li><FilterBarCategory title='Товар' openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} typeOfFilter='uom' /></li>
+        <li><FilterBarCategory title='Товар' openedFilter={openedFilter} setOpenedFilter={setOpenedFilter} typeOfFilter='sku' /></li>
       </ul>
     </section>
   )

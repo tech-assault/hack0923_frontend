@@ -1,28 +1,38 @@
-import { FC, useState, useEffect, useMemo } from 'react'
+import { FC, useState, useEffect } from 'react'
 import styles from './FilterBarCategory.module.css'
 import icon_arrow_down from './../../vendor/images/icon_arrow_down.svg'
 import icon_arrow_right from './../../vendor/images/icon_arrow_right.svg'
 import { filterType } from '../FilterBar/FilterBar';
-import { useGetProductsQuery } from '../../redux/slices/API';
+import { useGetProductsQuery, useGetShopsQuery } from '../../redux/slices/API';
 
 type FilterBarCategoryProps = {
     title: filterType;
     openedFilter: filterType;
     setOpenedFilter: React.Dispatch<React.SetStateAction<filterType>>;
-    typeOfFilter: 'sku' | 'group' | 'category' | 'subcategory' | 'uom';
+    typeOfFilter: 'sku' | 'group' | 'category' | 'subcategory' | 'uom' | 'shops';
 }
 
 const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, setOpenedFilter, typeOfFilter }) => {
 
     const { data, isLoading } = useGetProductsQuery()
+    const shopsQuery = useGetShopsQuery()
+    const shopsData = shopsQuery.data
 
     useEffect(() => {
+
         const filterList = data?.data.map(obj => obj[typeOfFilter]);
         const filteredfilterList = [...new Set(filterList)];
-        const originalData = Array.from(filteredfilterList);
-        setFilteredData(originalData);
-        setOriginalData(originalData); // Set original data
-    }, [data, isLoading, typeOfFilter])
+        if (typeOfFilter !== 'shops' && shopsQuery.isSuccess) {
+            const originalData = Array.from(filteredfilterList);
+            setFilteredData(originalData);
+            setOriginalData(originalData); // Set original data
+        }
+        else {
+            const shopNames: string[] = shopsData?.data?.map(shop => shop.store) || [];
+            setFilteredData(shopNames);
+            setOriginalData(shopNames);
+        }
+    }, [data, isLoading, shopsData, shopsQuery.isSuccess, typeOfFilter])
 
 
     const [searchValue, setSearchValue] = useState("");

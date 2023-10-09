@@ -9,6 +9,7 @@ type GetProductsResponse = {
 }
 
 type Product = {
+  shops: string
   sku: string,
   group: string,
   category: string,
