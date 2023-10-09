@@ -307,16 +307,16 @@ console.log(data);
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
           {item.product}
         </th>
-        <th className={`${styles["cell-item__container"]}`}>
+        <td className={`${styles["cell-item__container"]}`}>
           {datesArray.map((date, dateIndex) => (
-            <th
+            <div
               key={dateIndex}
               className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
             >
               {item.demand[dateIndex]}
-            </th>
+            </div>
           ))}
-        </th>
+        </td>
       </tr>
     ))}
   </tbody>
