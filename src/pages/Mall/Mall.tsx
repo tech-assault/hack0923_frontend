@@ -1,19 +1,19 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState } from "react";
 import styles from "./Mall.module.css";
 // import { cities, ids } from "../../constants/constants";
 import lenta_logo from "../../vendor/images/lenta_logo.svg";
-import { useDispatch } from "../../hooks/useDispatch";
-import { useSelector } from "../../hooks/useSelector";
-import { fetchStores } from "../../redux/thunks/shopsThunks";
+import { useGetShopsQuery } from "../../redux/slices/API";
 
 type MallProps = {
   onClose: () => void;
 };
 
 const Mall: FC<MallProps> = ({ onClose }) => {
-  const stores = useSelector((state) => state.shops.stores);
-  const storeCities = stores ? stores.map(shop => shop.city) : [];
-  const storeIds = stores ? stores.map(shop => shop.store) : [];
+
+  const { data, isSuccess } = useGetShopsQuery()
+
+  const storeCities = isSuccess ? data.data.map(shop => shop.city) : [];
+  const storeIds = isSuccess ? data.data.map(shop => shop.store) : [];
 
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedId, setSelectedId] = useState("");
@@ -25,14 +25,6 @@ const Mall: FC<MallProps> = ({ onClose }) => {
   const [filteredIds, setFilteredIds] = useState(storeIds);
 
   const [idErrorMessage, setIdErrorMessage] = useState<string | null>(null);
-
-  const dispatch = useDispatch();
-
-  console.log(stores, 'STORES');
-
-  useEffect(() => {
-    dispatch(fetchStores());
-  }, [dispatch]);
 
   function handleCityClick(city: string) {
     setSelectedCity(city);

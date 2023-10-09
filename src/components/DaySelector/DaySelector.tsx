@@ -11,7 +11,7 @@ const DaySelector = () => {
     const dateFrom = useSelector(state => state.MainPage.timeRange.from)
     const dateTo = useSelector(state => state.MainPage.timeRange.to)
 
-    const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([dateFrom, dateTo]);
+    const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([new Date(dateFrom), new Date(dateTo)]);
     const [startDate, endDate] = dateRange;
     const id = useId();
 

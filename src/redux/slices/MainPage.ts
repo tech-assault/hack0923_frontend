@@ -5,21 +5,20 @@ export type GraphType = 'demand' | 'quality';
 type InitialState = {
     graphType: GraphType,
     timeRange: {
-        from: Date,
-        to: Date,
+        from: number,
+        to: number,
     },
     isMallPopupVisible: boolean
 }
 
-const today = new Date();
-const twoWeeksFromNow = new Date();
-twoWeeksFromNow.setDate(today.getDate() + 14);
+const today = Date.now();
+const twoWeeksFromToday = today + 14 * 24 * 60 * 60 * 1000 //14 days
 
 const initialState: InitialState = {
     graphType: 'demand',
     timeRange: {
         from: today,
-        to: twoWeeksFromNow,
+        to: twoWeeksFromToday,
     },
     isMallPopupVisible: true
 }
