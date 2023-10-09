@@ -98,7 +98,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
               onChange={handleCityInputChange}
               onClick={() => setDropdownVisibleCity(!dropdownVisibleCity)}
               className={`${styles.login__info} ${styles.login__info_form_title}`}
-              placeholder="Москва"
+              placeholder="Поиск.."
             />
 
             {dropdownVisibleCity && (
@@ -126,7 +126,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
               onChange={handleIdInputChange}
               onClick={() => setDropdownVisibleId(!dropdownVisibleId)}
               className={`${styles.login__info} ${styles.login__info_form_subtitle}`}
-              placeholder="fst56jk90drt2"
+              placeholder="Поиск.."
               required
             />
             {dropdownVisibleId && (
