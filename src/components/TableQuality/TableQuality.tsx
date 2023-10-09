@@ -1,183 +1,12 @@
 import { FC } from "react";
 import styles from "./TableQuality.module.css";
+import { useGetProductsQuery } from "../../redux/slices/API";
 
 const TableQuality: FC = () => {
     
-      const items = [
-        {
-          tk: "ТК 1",
-          group: "Продукция собственного производства",
-          category: "Кулинария «Лента»",
-          subCategory: "Гриль",
-          product: "Цыпленок гриль, весовой",
-          unit: "г",
-          day: {
-            sale: {
-              unit: "10 шт",
-              amount: "1500 руб",
-          },
-          forecast: {
-              unit: "150 шт",
-              amount: "1500 руб", 
-          },
-          },
-          week: {
-            sale: {
-              unit: "200 шт",
-              amount: "200 руб",
-          },
-          forecast: {
-              unit: "45 шт",
-              amount: "1450 руб", 
-          },
-          },
-      },
+  const {data, isLoading} = useGetProductsQuery();
 
-      {
-        tk: "ТК 1",
-        group: "Продукция собственного производства",
-        category: "Кулинария «Лента»",
-        subCategory: "Гриль",
-        product: "Цыпленок гриль, весовой",
-        unit: "г",
-        day: {
-          sale: {
-            unit: "10 шт",
-            amount: "1500 руб",
-        },
-        forecast: {
-            unit: "150 шт",
-            amount: "1500 руб", 
-        },
-        },
-        week: {
-          sale: {
-            unit: "200 шт",
-            amount: "200 руб",
-        },
-        forecast: {
-            unit: "45 шт",
-            amount: "1450 руб", 
-        },
-        },
-    },
-
-    {
-      tk: "ТК 1",
-      group: "Продукция собственного производства",
-      category: "Кулинария «Лента»",
-      subCategory: "Гриль",
-      product: "Цыпленок гриль, весовой",
-      unit: "г",
-      day: {
-        sale: {
-          unit: "10 шт",
-          amount: "1500 руб",
-      },
-      forecast: {
-          unit: "150 шт",
-          amount: "1500 руб", 
-      },
-      },
-      week: {
-        sale: {
-          unit: "200 шт",
-          amount: "200 руб",
-      },
-      forecast: {
-          unit: "45 шт",
-          amount: "1450 руб", 
-      },
-      },
-  },
-
-  {
-    tk: "ТК 1",
-    group: "Продукция собственного производства",
-    category: "Кулинария «Лента»",
-    subCategory: "Гриль",
-    product: "Цыпленок гриль, весовой",
-    unit: "г",
-    day: {
-      sale: {
-        unit: "10 шт",
-        amount: "1500 руб",
-    },
-    forecast: {
-        unit: "150 шт",
-        amount: "1500 руб", 
-    },
-    },
-    week: {
-      sale: {
-        unit: "200 шт",
-        amount: "200 руб",
-    },
-    forecast: {
-        unit: "45 шт",
-        amount: "1450 руб", 
-    },
-    },
-},
-
-{
-  tk: "ТК 1",
-  group: "Продукция собственного производства",
-  category: "Кулинария «Лента»",
-  subCategory: "Гриль",
-  product: "Цыпленок гриль, весовой",
-  unit: "г",
-  day: {
-    sale: {
-      unit: "10 шт",
-      amount: "1500 руб",
-  },
-  forecast: {
-      unit: "150 шт",
-      amount: "1500 руб", 
-  },
-  },
-  week: {
-    sale: {
-      unit: "200 шт",
-      amount: "200 руб",
-  },
-  forecast: {
-      unit: "45 шт",
-      amount: "1450 руб", 
-  },
-  },
-},
-
-{
-  tk: "ТК 1",
-  group: "Продукция собственного производства",
-  category: "Кулинария «Лента»",
-  subCategory: "Гриль",
-  product: "Цыпленок гриль, весовой",
-  unit: "г",
-  day: {
-    sale: {
-      unit: "10 шт",
-      amount: "1500 руб",
-  },
-  forecast: {
-      unit: "150 шт",
-      amount: "1500 руб", 
-  },
-  },
-  week: {
-    sale: {
-      unit: "200 шт",
-      amount: "200 руб",
-  },
-  forecast: {
-      unit: "45 шт",
-      amount: "1450 руб", 
-  },
-  },
-},
-      ];
+  const items = !isLoading && data ? data.data : [];
    
   return (
     <>
@@ -243,7 +72,7 @@ const TableQuality: FC = () => {
           <input type="checkbox" className={styles.checkbox} />
         </th>
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
-          {item.tk}
+          
         </th>
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
           {item.group}
@@ -252,32 +81,34 @@ const TableQuality: FC = () => {
           {item.category}
         </th>
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
-          {item.subCategory}
+          {item.subcategory}
         </th>
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
-          {item.product}
+          {item.sku}
         </th>
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
-          {item.unit}
+          {item.uom}
         </th>
         <td className={`${styles["cell-item__container"]}`}>
             <div
               className={`${styles["cell-item"]} ${styles["cell-item__unit"]}`}
             >
-            {item.day.sale.unit}
+            {/* {item.day.sale.unit} */}
             </div>
             <div
               className={`${styles["cell-item"]} ${styles["cell-item__amount"]}`}
-            >{item.day.sale.amount}
+            >
+              {/* {item.day.sale.amount} */}
             </div>
             <div
               className={`${styles["cell-item"]} ${styles["cell-item__unit"]}`}
             >
-            {item.day.forecast.unit}
+            {/* {item.day.forecast.unit} */}
             </div>
             <div
               className={`${styles["cell-item"]} ${styles["cell-item__amount"]}`}
-            >{item.day.forecast.amount}
+            >
+              {/* {item.day.forecast.amount} */}
             </div>
         </td>
 
@@ -285,20 +116,22 @@ const TableQuality: FC = () => {
             <div
               className={`${styles["cell-item"]} ${styles["cell-item__unit"]}`}
             >
-            {item.week.sale.unit}
+            {/* {item.week.sale.unit} */}
             </div>
             <div
               className={`${styles["cell-item"]} ${styles["cell-item__amount"]}`}
-            >{item.week.sale.amount}
+            >
+              {/* {item.week.sale.amount} */}
             </div>
             <div
               className={`${styles["cell-item"]} ${styles["cell-item__unit"]}`}
             >
-            {item.week.forecast.unit}
+            {/* {item.week.forecast.unit} */}
             </div>
             <div
               className={`${styles["cell-item"]} ${styles["cell-item__amount"]}`}
-            >{item.week.forecast.amount}
+            >
+              {/* {item.week.forecast.amount} */}
             </div>
         </td>
       </tr>

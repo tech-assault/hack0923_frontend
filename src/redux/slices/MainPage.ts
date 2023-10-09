@@ -80,6 +80,9 @@ export const slice = createSlice({
         setSubcategoryData: (state, { payload }: PayloadAction<string>) => {
             state.filters.subcategory = payload;
         },
+        setTableLoading: (state, action) => {
+            state.isLoading = action.payload;
+        },
     },
 });
 
@@ -94,7 +97,8 @@ export const {
     setGroupData,
     setCategoryData,
     setSubcategoryData,
-    setLoading
+    setLoading,
+    setTableLoading
 } = slice.actions;
 
 export default slice.reducer;
