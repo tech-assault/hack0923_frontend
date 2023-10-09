@@ -108,15 +108,16 @@ const items = !isLoading && data ? data.data : [];
         <th className={`${styles["cell-name"]} ${styles["cell-item"]}`}>
           {item.sku}
         </th>
-        <th className={`${styles["cell-item__container"]}`}>
-         
-            <th
-              // key={dateIndex}
-              className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
-            >
-              {item.uom}
-            </th>
-        </th>
+        <td className={`${styles["cell-item__container"]}`}>
+        {datesArray.map((date, dateIndex) => (
+        <div
+          key={dateIndex}
+          className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
+        >
+          {item.uom}
+        </div>
+      ))}
+        </td>
       </tr>
     ))}
   </tbody>
