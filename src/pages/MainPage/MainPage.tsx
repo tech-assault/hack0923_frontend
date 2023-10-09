@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import styles from "./MainPage.module.css";
 import FilterBar from "../../components/FilterBar/FilterBar";
 import Table from "../../components/Table/Table";
@@ -11,13 +11,24 @@ import icon_chart from "../../vendor/images/chart.svg";
 import Mall from "../Mall/Mall";
 import { useDispatch } from "../../hooks/useDispatch";
 import { useSelector } from "../../hooks/useSelector";
-import { closeMallPopup } from "../../redux/slices/MainPage";
+import { closeMallPopup, setLoading } from "../../redux/slices/MainPage";
+import Preloader from "../../components/Preloader/Preloader";
 
 const MainPage: FC = () => {
   const isMallPopupVisible = useSelector(
     (store) => store.MainPage.isMallPopupVisible
   );
   const dispatch = useDispatch();
+
+  const isLoading = useSelector((store) => store.MainPage.isLoading);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      dispatch(setLoading(false));
+    }, 2000);
+
+    return () => clearTimeout(timer);
+}, [dispatch]);
 
   const handleClose = () => {
     dispatch(closeMallPopup());
@@ -26,9 +37,12 @@ const MainPage: FC = () => {
 
   return (
     <>
-      {isMallPopupVisible ? (
+     {isMallPopupVisible ? (
         <Mall onClose={handleClose} />
-      ) : (
+      ) :
+        isLoading ? (
+          <Preloader />
+        ) : (
         <main className={styles.container}>
           <FilterBar />
           <div className={styles.content}>

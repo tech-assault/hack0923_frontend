@@ -17,6 +17,7 @@ type InitialState = {
         from: number;
         to: number;
     };
+    isLoading: boolean;
     isMallPopupVisible: boolean;
     filters: Filters;
 };
@@ -32,6 +33,7 @@ const initialState: InitialState = {
         from: today,
         to: twoWeeksFromToday,
     },
+    isLoading: true,
     isMallPopupVisible: !isPopupClosed,
     filters: {
         shops: '',
@@ -56,6 +58,9 @@ export const slice = createSlice({
         closeMallPopup: (state) => {
             state.isMallPopupVisible = false;
             localStorage.setItem('popupStatus', 'closed');
+        },
+        setLoading: (state, action) => {
+            state.isLoading = action.payload;
         },
         setFilterData: (state, { payload }: PayloadAction<Filters>) => {
             state.filters = payload;
@@ -88,7 +93,8 @@ export const {
     setSkuData,
     setGroupData,
     setCategoryData,
-    setSubcategoryData
+    setSubcategoryData,
+    setLoading
 } = slice.actions;
 
 export default slice.reducer;
