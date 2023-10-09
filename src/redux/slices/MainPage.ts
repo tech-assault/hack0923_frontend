@@ -63,10 +63,32 @@ export const slice = createSlice({
         setShopsData: (state, { payload }: PayloadAction<string>) => {
             state.filters.shops = payload;
         },
+        setSkuData: (state, { payload }: PayloadAction<string>) => {
+            state.filters.sku = payload;
+        },
+        setGroupData: (state, { payload }: PayloadAction<string>) => {
+            state.filters.group = payload;
+        },
+        setCategoryData: (state, { payload }: PayloadAction<string>) => {
+            state.filters.category = payload;
+        },
+        setSubcategoryData: (state, { payload }: PayloadAction<string>) => {
+            state.filters.subcategory = payload;
+        },
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { selectGraphType, openMallPopup, closeMallPopup, setFilterData, setShopsData } = slice.actions;
+export const {
+    selectGraphType,
+    openMallPopup,
+    closeMallPopup,
+    setFilterData,
+    setShopsData,
+    setSkuData,
+    setGroupData,
+    setCategoryData,
+    setSubcategoryData
+} = slice.actions;
 
 export default slice.reducer;

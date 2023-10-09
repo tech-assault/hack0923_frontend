@@ -4,12 +4,14 @@ import icon_arrow_down from './../../vendor/images/icon_arrow_down.svg'
 import icon_arrow_right from './../../vendor/images/icon_arrow_right.svg'
 import { filterType } from '../FilterBar/FilterBar';
 import { useGetProductsQuery, useGetShopsQuery } from '../../redux/slices/API';
+import { setCategoryData, setGroupData, setShopsData, setSkuData, setSubcategoryData } from '../../redux/slices/MainPage';
+import { useDispatch } from '../../hooks/useDispatch';
 
 type FilterBarCategoryProps = {
     title: filterType;
     openedFilter: filterType;
     setOpenedFilter: React.Dispatch<React.SetStateAction<filterType>>;
-    typeOfFilter: 'sku' | 'group' | 'category' | 'subcategory' | 'uom' | 'shops';
+    typeOfFilter: 'sku' | 'group' | 'category' | 'subcategory' | 'shops';
 }
 
 const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, setOpenedFilter, typeOfFilter }) => {
@@ -17,6 +19,8 @@ const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, se
     const { data, isLoading } = useGetProductsQuery()
     const shopsQuery = useGetShopsQuery()
     const shopsData = shopsQuery.data
+
+    const dispatch = useDispatch()
 
     useEffect(() => {
 
@@ -42,6 +46,11 @@ const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, se
 
     const handleCheckboxChange = (mall: string) => {
         setSelectedMall(mall);
+        if (typeOfFilter === 'shops') dispatch(setShopsData(mall))
+        else if (typeOfFilter === 'group') dispatch(setGroupData(mall))
+        else if (typeOfFilter === 'category') dispatch(setCategoryData(mall))
+        else if (typeOfFilter === 'subcategory') dispatch(setSubcategoryData(mall))
+        else if (typeOfFilter === 'sku') dispatch(setSkuData(mall))
     }
 
     function handleClick() {
