@@ -3,31 +3,34 @@ import styles from './FilterBarCategory.module.css'
 import icon_arrow_down from './../../vendor/images/icon_arrow_down.svg'
 import icon_arrow_right from './../../vendor/images/icon_arrow_right.svg'
 import { filterType } from '../FilterBar/FilterBar';
-import { useGetShopsQuery } from "../../redux/slices/API";
+import { useGetProductsQuery } from '../../redux/slices/API';
 
 type FilterBarCategoryProps = {
     title: filterType;
     openedFilter: filterType;
     setOpenedFilter: React.Dispatch<React.SetStateAction<filterType>>;
+    typeOfFilter: 'sku' | 'group' | 'category' | 'subcategory' | 'uom';
 }
 
-const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, setOpenedFilter }) => {
+const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, setOpenedFilter, typeOfFilter }) => {
 
-    const { data, isSuccess } = useGetShopsQuery()
+    const { data, isLoading } = useGetProductsQuery()
 
-     const storeIds = useMemo(() => {
-    if (isSuccess && data.data) {
-            return data.data.map(shop => shop.store);
-    } else {
-        return [];
-    }
-}, [isSuccess, data]);
+    useEffect(() => {
+        const filterList = data?.data.map(obj => obj[typeOfFilter]);
+        const filteredfilterList = [...new Set(filterList)];
+        const originalData = Array.from(filteredfilterList);
+        setFilteredData(originalData);
+        setOriginalData(originalData); // Set original data
+    }, [data, isLoading, typeOfFilter])
+
 
     const [searchValue, setSearchValue] = useState("");
-    const [filteredData, setFilteredData] = useState(storeIds);
-    const [selectedMall, setSelectedMall] = useState("");
+    const [filteredData, setFilteredData] = useState<string[]>([]);
+    const [selectedMall, setSelectedMall] = useState<string | null>(null);
+    const [originalData, setOriginalData] = useState<string[]>([]);
 
-    const handleCheckboxChange = (mall:string) => {
+    const handleCheckboxChange = (mall: string) => {
         setSelectedMall(mall);
     }
 
@@ -36,16 +39,14 @@ const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, se
         else setOpenedFilter(null)
     }
 
-
-
     useEffect(() => {//search
         if (searchValue !== '') {//Show filtered list or initial data if string=''
-            const newFilteredData = storeIds.filter(el => el.toLowerCase().includes(searchValue.toLowerCase()));
+            const newFilteredData = originalData.filter(el => el.toString().toLowerCase().includes(searchValue.toLowerCase())); // Use originalData instead of filteredData
             setFilteredData(newFilteredData);
         } else {
-            setFilteredData(storeIds);
+            setFilteredData(originalData); // Reset to original data
         }
-    }, [searchValue]);
+    }, [searchValue, originalData]); // Add originalData to dependency array
 
     return (
         <div className={styles.container}>
@@ -65,11 +66,9 @@ const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, se
                             return (
                                 <li className={styles.list_item} key={index}>
                                     <label className={styles.input_label} htmlFor={`checkbox-${index}`}>
-                                        <input className={styles.input_checkbox} type='checkbox' id={`checkbox-${index}`} checked={selectedMall === el} 
-                                            onChange={() => handleCheckboxChange(el)}/>
-                                        <input className={styles.input_checkbox} type='checkbox' id={`checkbox-${index}`} checked={selectedMall === el} 
-                                            onChange={() => handleCheckboxChange(el)}/>
-                                        {el}
+                                        <input className={styles.input_checkbox} type='checkbox' id={`checkbox-${index}`} checked={selectedMall === el}
+                                            onChange={() => handleCheckboxChange(el)} />
+                                        <p className={styles.input_label_text}>{el}</p>
                                     </label>
                                 </li>
                             )
