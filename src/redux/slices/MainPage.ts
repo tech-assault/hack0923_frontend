@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export type GraphType = 'demand' | 'quality';
 
 type Filters = {
+    shops: string,
     sku: string;
     group: string;
     category: string;
@@ -21,7 +22,9 @@ type InitialState = {
 };
 
 const today = Date.now();
-const twoWeeksFromToday = today + 14 * 24 * 60 * 60 * 1000; // 14 days
+const twoWeeksFromToday = today + 13 * 24 * 60 * 60 * 1000; // 14 days
+
+const isPopupClosed = localStorage.getItem('popupStatus') === 'closed';
 
 const initialState: InitialState = {
     graphType: 'demand',
@@ -29,8 +32,9 @@ const initialState: InitialState = {
         from: today,
         to: twoWeeksFromToday,
     },
-    isMallPopupVisible: true,
+    isMallPopupVisible: !isPopupClosed,
     filters: {
+        shops: '',
         sku: '',
         group: '',
         category: '',
@@ -51,14 +55,18 @@ export const slice = createSlice({
         },
         closeMallPopup: (state) => {
             state.isMallPopupVisible = false;
+            localStorage.setItem('popupStatus', 'closed');
         },
         setFilterData: (state, { payload }: PayloadAction<Filters>) => {
             state.filters = payload;
+        },
+        setShopsData: (state, { payload }: PayloadAction<string>) => {
+            state.filters.shops = payload;
         },
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { selectGraphType, openMallPopup, closeMallPopup, setFilterData } = slice.actions;
+export const { selectGraphType, openMallPopup, closeMallPopup, setFilterData, setShopsData } = slice.actions;
 
 export default slice.reducer;

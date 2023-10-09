@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import styles from "./MainPage.module.css";
 import FilterBar from "../../components/FilterBar/FilterBar";
 import Table from "../../components/Table/Table";
@@ -11,7 +11,7 @@ import icon_chart from "../../vendor/images/chart.svg";
 import Mall from "../Mall/Mall";
 import { useDispatch } from "../../hooks/useDispatch";
 import { useSelector } from "../../hooks/useSelector";
-import { closeMallPopup, openMallPopup } from "../../redux/slices/MainPage";
+import { closeMallPopup } from "../../redux/slices/MainPage";
 
 const MainPage: FC = () => {
   const isMallPopupVisible = useSelector(
@@ -19,12 +19,9 @@ const MainPage: FC = () => {
   );
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(openMallPopup());
-  }, [dispatch]);
-
   const handleClose = () => {
     dispatch(closeMallPopup());
+    localStorage.setItem('popupStatus', 'closed');
   };
 
   return (

@@ -1,23 +1,39 @@
 import { FC } from "react";
 import styles from "./TableDemand.module.css";
+import { useSelector } from "../../hooks/useSelector";
+import { useGetProductsQuery } from "../../redux/slices/API";
 
 const TableDemand: FC = () => {
 
-    const dates = [
-        "23.09.2023",
-        "24.09.2023",
-        "25.09.2023",
-        "26.09.2023",
-        "27.09.2023",
-        "28.09.2023",
-        // "29.09.2023",
-        // "30.09.2023",
-        // "31.09.2023",
-        // "01.10.2023",
-        // "02.10.2023",
-        // "03.10.2023",
-        // "04.10.2023",
-      ];
+  const formatDate = (date: Date): string => {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}.${month}.${year}`;
+};
+
+const timeFrom = useSelector((store) => store.MainPage.timeRange.from);
+
+const timeTo = useSelector((store) => store.MainPage.timeRange.to);
+
+const generateFormattedDatesBetween = (from: number, to: number): string[] => {
+    const dates = [];
+
+    const startDate = new Date(from);
+    const endDate = new Date(to);
+
+    for(let current = startDate; current <= endDate; current.setDate(current.getDate() + 1)) {
+        dates.push(formatDate(current));
+    }
+
+    return dates;
+}
+const datesArray = generateFormattedDatesBetween(timeFrom, timeTo);
+
+const {data, isLoading} = useGetProductsQuery();
+
+console.log(data);
+
     
       const items = [
         {
@@ -263,7 +279,7 @@ const TableDemand: FC = () => {
         className={`${styles["cell-name"]} ${styles["cell-item"]}`}
       ></th>
       <td className={`${styles["cell-item__container"]}`}>
-        {dates.map((date, dateIndex) => (
+        {datesArray.map((date, dateIndex) => (
           <div key={dateIndex} className={styles["cell-item__data"]}>
             {date}
           </div>
@@ -292,7 +308,7 @@ const TableDemand: FC = () => {
           {item.product}
         </th>
         <th className={`${styles["cell-item__container"]}`}>
-          {dates.map((date, dateIndex) => (
+          {datesArray.map((date, dateIndex) => (
             <th
               key={dateIndex}
               className={`${styles["cell-item"]} ${styles["cell-item__data"]}`}
