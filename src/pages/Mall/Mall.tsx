@@ -1,8 +1,9 @@
 import { FC, useState, useEffect, useMemo } from "react";
 import styles from "./Mall.module.css";
-// import { cities, ids } from "../../constants/constants";
 import lenta_logo from "../../vendor/images/lenta_logo.svg";
 import { useGetShopsQuery } from "../../redux/slices/API";
+import { setFilterData } from "../../redux/slices/MainPage";
+import { useDispatch } from "../../hooks/useDispatch";
 
 type MallProps = {
   onClose: () => void;
@@ -10,13 +11,39 @@ type MallProps = {
 
 const Mall: FC<MallProps> = ({ onClose }) => {
 
-  const { data, isSuccess } = useGetShopsQuery()
+  const dispatch = useDispatch();
 
-  const storeCities = useMemo(() => isSuccess && data.data ? data.data.map(shop => shop.city) : [], [isSuccess, data]);
-  const storeIds = useMemo(() => isSuccess && data.data ? data.data.map(shop => shop.store) : [], [isSuccess, data]);
 
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedId, setSelectedId] = useState("");
+
+  const [isCityValid, setIsCityValid] = useState(true);
+  const [isIdValid, setIsIdValid] = useState(true);
+
+  const { data, isSuccess } = useGetShopsQuery()
+
+  const storeCities = useMemo(() => {
+    if (isSuccess && data.data) {
+        const uniqueCities = new Set(data.data.map(shop => shop.city));
+        return [...uniqueCities];
+    } else {
+        return [];
+    }
+}, [isSuccess, data]);
+
+  const storeIds = useMemo(() => {
+    if (isSuccess && data.data) {
+        if (selectedCity) {
+            // Если город выбран, фильтруем магазины по этому городу
+            return data.data.filter(shop => shop.city === selectedCity).map(shop => shop.store);
+        } else {
+            // Если город не выбран, возвращаем все магазины
+            return data.data.map(shop => shop.store);
+        }
+    } else {
+        return [];
+    }
+}, [isSuccess, data, selectedCity]);
 
   const [dropdownVisibleCity, setDropdownVisibleCity] = useState(false);
   const [dropdownVisibleId, setDropdownVisibleId] = useState(false);
@@ -41,8 +68,17 @@ const Mall: FC<MallProps> = ({ onClose }) => {
 
   function handleIdClick(id: string) {
     setSelectedId(id);
+    // Проверяем наличие свойства data и наличие массива data внутри объекта data
+    if (data && data.data) {
+        const correspondingCity = data.data.find(shop => shop.store === id)?.city;
+        if (correspondingCity) {
+            setSelectedCity(correspondingCity);
+        }
+    }
+
     setDropdownVisibleId(false);
-  }
+}
+
 
   const handleCityInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedCity(e.target.value);
@@ -51,6 +87,13 @@ const Mall: FC<MallProps> = ({ onClose }) => {
         city.toLowerCase().includes(e.target.value.toLowerCase())
       )
     );
+    if (!e.target.checkValidity()) {
+      setIsCityValid(false);
+      setIdErrorMessage(e.target.validationMessage);
+    } else {
+      setIdErrorMessage(null);
+      setIsCityValid(true);
+    }
   };
 
   const handleIdInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,15 +101,25 @@ const Mall: FC<MallProps> = ({ onClose }) => {
     setFilteredIds(storeIds.filter((id) => id.includes(e.target.value)));
 
     if (!e.target.checkValidity()) {
+      setIsIdValid(false);
       setIdErrorMessage(e.target.validationMessage);
     } else {
       setIdErrorMessage(null);
+      setIsIdValid(true);
     }
   };
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // handleLogin(userEmail, userPassword);
+    dispatch(setFilterData({
+      sku: selectedId,
+      group: '',       
+      category: '',   
+      subcategory: '', 
+      uom: 0  
+  }));
+    onClose();
+   
   }
 
   return (
@@ -94,11 +147,14 @@ const Mall: FC<MallProps> = ({ onClose }) => {
           <div className={styles["city-selector"]}>
             <input
               type="text"
+              minLength={28}
+              maxLength={35}
               value={selectedCity}
               onChange={handleCityInputChange}
               onClick={() => setDropdownVisibleCity(!dropdownVisibleCity)}
-              className={`${styles.login__info} ${styles.login__info_form_title}`}
+              className={`${styles.login__info} ${styles.login__info_form_title} ${!isCityValid ? styles.login__info_type_invalid : ''}`}
               placeholder="Поиск.."
+              required
             />
 
             {dropdownVisibleCity && (
@@ -116,16 +172,16 @@ const Mall: FC<MallProps> = ({ onClose }) => {
             )}
           </div>
 
-          <p className={styles["login__title-input"]}>Id торгового комплекса</p>
+          <p className={`${styles["login__title-input"]} ${styles["login__title-input_type_up"]}`}>Id торгового комплекса</p>
           <div className={styles["city-selector"]}>
             <input
               type="text"
-              minLength={6}
-              maxLength={200}
+              minLength={28}
+              maxLength={35}
               value={selectedId}
               onChange={handleIdInputChange}
               onClick={() => setDropdownVisibleId(!dropdownVisibleId)}
-              className={`${styles.login__info} ${styles.login__info_form_subtitle}`}
+              className={`${styles.login__info} ${styles.login__info_form_subtitle} ${!isIdValid ? styles.login__info_type_invalid : ''}`}
               placeholder="Поиск.."
               required
             />
@@ -147,9 +203,9 @@ const Mall: FC<MallProps> = ({ onClose }) => {
           {idErrorMessage && (
             <span className={styles.span}>{idErrorMessage}</span>
           )}
-          <button type="submit" className={styles["login__button-save"]}>
+          <button type="submit" className={styles["login__button-save"]} disabled={!isIdValid || !isCityValid}>
             Перейти к данным
-          </button>
+            </button> 
         </form>
       </div>
     </div>

@@ -61,6 +61,10 @@
   padding-bottom: 10px;
 }
 
+.login__title-input_type_up {
+  margin-top: 20px;
+}
+
 .elements__image {
   width: 17px;
   height: 17px;
@@ -98,7 +102,6 @@
   cursor: pointer;
   border: none;
   box-sizing: border-box;
-  margin-bottom: 20px;
 }
 
 .login__form {
@@ -107,9 +110,14 @@
   flex-direction: column;
 }
 
+.login__info_type_invalid {
+  border: 1px solid var(--error, #AA2332);
+  background: var(--error-2, #FFE5E1);
+}
+
 .login__button-save {
   color: #fff;
-  margin-top: 30px;
+  margin-top: 50px;
   min-width: 395px;
   text-align: center;
   font-size: 18px;
@@ -120,6 +128,7 @@
   border-radius: 12px;
   background: #003c96;
   border: none;
+  cursor: pointer;
 }
 
 .city-selector {
