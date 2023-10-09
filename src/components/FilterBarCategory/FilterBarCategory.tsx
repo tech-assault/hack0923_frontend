@@ -37,6 +37,7 @@ const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, se
     }
 
 
+
     useEffect(() => {//search
         if (searchValue !== '') {//Show filtered list or initial data if string=''
             const newFilteredData = storeIds.filter(el => el.toLowerCase().includes(searchValue.toLowerCase()));
@@ -64,6 +65,8 @@ const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, se
                             return (
                                 <li className={styles.list_item} key={index}>
                                     <label className={styles.input_label} htmlFor={`checkbox-${index}`}>
+                                        <input className={styles.input_checkbox} type='checkbox' id={`checkbox-${index}`} checked={selectedMall === el} 
+                                            onChange={() => handleCheckboxChange(el)}/>
                                         <input className={styles.input_checkbox} type='checkbox' id={`checkbox-${index}`} checked={selectedMall === el} 
                                             onChange={() => handleCheckboxChange(el)}/>
                                         {el}
