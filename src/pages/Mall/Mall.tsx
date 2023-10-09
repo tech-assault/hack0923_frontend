@@ -2,7 +2,7 @@ import { FC, useState, useEffect, useMemo } from "react";
 import styles from "./Mall.module.css";
 import lenta_logo from "../../vendor/images/lenta_logo.svg";
 import { useGetShopsQuery } from "../../redux/slices/API";
-import { setFilterData } from "../../redux/slices/MainPage";
+import { setShopsData } from "../../redux/slices/MainPage";
 import { useDispatch } from "../../hooks/useDispatch";
 
 type MallProps = {
@@ -111,13 +111,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    dispatch(setFilterData({
-      sku: selectedId,
-      group: '',       
-      category: '',   
-      subcategory: '', 
-      uom: 0  
-  }));
+    dispatch(setShopsData(selectedId));
     onClose();
    
   }
