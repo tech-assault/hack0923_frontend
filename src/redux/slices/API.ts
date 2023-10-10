@@ -27,6 +27,13 @@ type Shop = {
   is_active: boolean;
 };
 
+type Params = {
+  store: string,
+  group: string,
+  category: string,
+  subcategory: string,
+}
+
 // Define a service using a base URL and expected endpoints
 export const API = createApi({
   reducerPath: 'shops',
@@ -35,8 +42,8 @@ export const API = createApi({
     getShops: builder.query<GetShopResponse, void>({
       query: () => 'shops/',
     }),
-    getProducts: builder.query<GetProductsResponse, void>({
-      query: () => 'categories/',
+    getProducts: builder.query<GetProductsResponse, Params>({
+      query: (params) => `categories/?store=${params.store ? params.store : ''}&group=${params.group}&category=${params.category}&subcategory=${params.subcategory}`,
     }),
   }),
 })

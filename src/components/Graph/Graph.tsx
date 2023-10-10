@@ -2,36 +2,57 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import styles from './Graph.module.css'
+import { useSelector } from '../../hooks/useSelector';
 
 const Graph = () => {
 
-    //TEST DATA
-    const labels = ['2023-10-01', '2023-10-02', '2023-10-03'];
+    Chart.register(...registerables);//fix problem with charts.js
 
+    const formatDate = (date: Date): string => {
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}.${month}.${year}`;
+    };
+
+    const timeFrom = useSelector((store) => store.MainPage.timeRange.from);
+    const timeTo = useSelector((store) => store.MainPage.timeRange.to);
+
+    const generateFormattedDatesBetween = (from: number, to: number): string[] => {
+        const dates = [];
+
+        const startDate = new Date(from);
+        const endDate = new Date(to);
+
+        for (let current = startDate; current <= endDate; current.setDate(current.getDate() + 1)) {
+            dates.push(formatDate(current));
+        }
+
+        return dates;
+    }
+    const datesArray = generateFormattedDatesBetween(timeFrom, timeTo);
+
+    //TEST DATA
     const data = {
-        labels,
+        labels: datesArray,
         datasets: [
             {
                 label: 'Dataset 1',
-                data: [12, 19, 3],
+                data: [12, 19, 16, 3, 43, 24, 33, 18, 25, 13, 35, 4, 1, 15],
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            },
-            {
-                label: 'Dataset 2',
-                data: [5, 9, 5],
-                backgroundColor: 'rgba(53, 162, 235, 0.5)',
-                borderColor: 'rgba(53, 162, 235, 1)',
                 borderWidth: 1
             },
         ],
     };
     //TEST DATA
 
-    Chart.register(...registerables);//fix problem with charts.js
+    const selectedFilters = useSelector(store => store.MainPage.filters)
+
+    useSelector
 
     const options = {
+
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
@@ -40,7 +61,11 @@ const Graph = () => {
             },
             title: {
                 display: true,
-                text: 'Chart.js Bar Chart',
+                text: `${selectedFilters.shops ? "ТК: " + selectedFilters.shops : ''}
+                ${selectedFilters.group ? "Группа: " + selectedFilters.group : ''}
+                ${selectedFilters.category ? "Категория: " + selectedFilters.category : ''}
+                ${selectedFilters.subcategory ? "Подкатегория: " + selectedFilters.subcategory : ''}
+                `,
                 align: 'start' as const,
                 font: {
                     size: 22,

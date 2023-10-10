@@ -6,6 +6,7 @@ import { filterType } from '../FilterBar/FilterBar';
 import { useGetProductsQuery, useGetShopsQuery } from '../../redux/slices/API';
 import { setCategoryData, setGroupData, setShopsData, setSkuData, setSubcategoryData } from '../../redux/slices/MainPage';
 import { useDispatch } from '../../hooks/useDispatch';
+import { useSelector } from '../../hooks/useSelector';
 
 type FilterBarCategoryProps = {
     title: filterType;
@@ -16,7 +17,14 @@ type FilterBarCategoryProps = {
 
 const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, setOpenedFilter, typeOfFilter }) => {
 
-    const { data, isLoading } = useGetProductsQuery()
+    const selectedShop = useSelector(store => store.MainPage.filters)
+
+    const { data, isLoading } = useGetProductsQuery({
+        store: selectedShop.shops,
+        group: selectedShop.group,
+        category: selectedShop.category,
+        subcategory: selectedShop.subcategory,
+    })
     const shopsQuery = useGetShopsQuery()
     const shopsData = shopsQuery.data
 
