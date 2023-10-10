@@ -39,9 +39,10 @@ const Graph = () => {
             {
                 label: 'Dataset 1',
                 data: [12, 19, 16, 3, 43, 24, 33, 18, 25, 13, 35, 4, 1, 15],
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
+                backgroundColor: '#00BE64',
+                borderColor: '#00BE64',
+                borderWidth: 1,
+                barPercentage: 0.5,
             },
         ],
     };
