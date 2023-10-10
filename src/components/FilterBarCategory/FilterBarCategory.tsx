@@ -24,6 +24,7 @@ const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, se
         group: selectedShop.group,
         category: selectedShop.category,
         subcategory: selectedShop.subcategory,
+        sku: selectedShop.sku,
     })
     const shopsQuery = useGetShopsQuery()
     const shopsData = shopsQuery.data

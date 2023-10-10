@@ -32,6 +32,7 @@ type Params = {
   group: string,
   category: string,
   subcategory: string,
+  sku: string,
 }
 
 // Define a service using a base URL and expected endpoints
@@ -43,7 +44,7 @@ export const API = createApi({
       query: () => 'shops/',
     }),
     getProducts: builder.query<GetProductsResponse, Params>({
-      query: (params) => `categories/?store=${params.store ? params.store : ''}&group=${params.group}&category=${params.category}&subcategory=${params.subcategory}`,
+      query: (params) => `categories/?store=${params.store ? params.store : ''}&group=${params.group}&category=${params.category}&subcategory=${params.subcategory}&sku=${params.sku}`,
     }),
   }),
 })

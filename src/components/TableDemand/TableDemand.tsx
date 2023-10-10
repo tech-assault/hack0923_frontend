@@ -38,6 +38,7 @@ const TableDemand: FC = () => {
     group: selectedShop.group,
     category: selectedShop.category,
     subcategory: selectedShop.subcategory,
+    sku: selectedShop.sku,
   })
 
 
