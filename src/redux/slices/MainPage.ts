@@ -36,7 +36,7 @@ const initialState: InitialState = {
     isLoading: true,
     isMallPopupVisible: !isPopupClosed,
     filters: {
-        shops: '',
+        shops: localStorage.getItem('shops') || '',
         sku: '',
         group: '',
         category: '',
@@ -57,7 +57,6 @@ export const slice = createSlice({
         },
         closeMallPopup: (state) => {
             state.isMallPopupVisible = false;
-            localStorage.setItem('popupStatus', 'closed');
         },
         setLoading: (state, action) => {
             state.isLoading = action.payload;

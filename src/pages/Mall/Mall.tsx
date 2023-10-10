@@ -6,7 +6,7 @@ import { setShopsData } from "../../redux/slices/MainPage";
 import { useDispatch } from "../../hooks/useDispatch";
 
 type MallProps = {
-  onClose: () => void;
+  onClose: (id: string) => void;
 };
 
 const Mall: FC<MallProps> = ({ onClose }) => {
@@ -24,26 +24,26 @@ const Mall: FC<MallProps> = ({ onClose }) => {
 
   const storeCities = useMemo(() => {
     if (isSuccess && data.data) {
-        const uniqueCities = new Set(data.data.map(shop => shop.city));
-        return [...uniqueCities];
+      const uniqueCities = new Set(data.data.map(shop => shop.city));
+      return [...uniqueCities];
     } else {
-        return [];
+      return [];
     }
-}, [isSuccess, data]);
+  }, [isSuccess, data]);
 
   const storeIds = useMemo(() => {
     if (isSuccess && data.data) {
-        if (selectedCity) {
-            // Если город выбран, фильтруем магазины по этому городу
-            return data.data.filter(shop => shop.city === selectedCity).map(shop => shop.store);
-        } else {
-            // Если город не выбран, возвращаем все магазины
-            return data.data.map(shop => shop.store);
-        }
+      if (selectedCity) {
+        // Если город выбран, фильтруем магазины по этому городу
+        return data.data.filter(shop => shop.city === selectedCity).map(shop => shop.store);
+      } else {
+        // Если город не выбран, возвращаем все магазины
+        return data.data.map(shop => shop.store);
+      }
     } else {
-        return [];
+      return [];
     }
-}, [isSuccess, data, selectedCity]);
+  }, [isSuccess, data, selectedCity]);
 
   const [dropdownVisibleCity, setDropdownVisibleCity] = useState(false);
   const [dropdownVisibleId, setDropdownVisibleId] = useState(false);
@@ -70,14 +70,14 @@ const Mall: FC<MallProps> = ({ onClose }) => {
     setSelectedId(id);
     // Проверяем наличие свойства data и наличие массива data внутри объекта data
     if (data && data.data) {
-        const correspondingCity = data.data.find(shop => shop.store === id)?.city;
-        if (correspondingCity) {
-            setSelectedCity(correspondingCity);
-        }
+      const correspondingCity = data.data.find(shop => shop.store === id)?.city;
+      if (correspondingCity) {
+        setSelectedCity(correspondingCity);
+      }
     }
 
     setDropdownVisibleId(false);
-}
+  }
 
 
   const handleCityInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -112,8 +112,8 @@ const Mall: FC<MallProps> = ({ onClose }) => {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     dispatch(setShopsData(selectedId));
-    onClose();
-   
+    onClose(selectedId);
+
   }
 
   return (
@@ -126,7 +126,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
 
       <div className={styles.login}>
         <button
-          onClick={onClose}
+          onClick={() => onClose(selectedId)}
           className={styles.elements__image}
           type="button"
           aria-label="Закрытие попапа"
@@ -199,7 +199,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
           )}
           <button type="submit" className={styles["login__button-save"]} disabled={!isIdValid || !isCityValid}>
             Перейти к данным
-            </button> 
+          </button>
         </form>
       </div>
     </div>

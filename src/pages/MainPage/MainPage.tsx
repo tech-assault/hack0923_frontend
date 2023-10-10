@@ -28,54 +28,55 @@ const MainPage: FC = () => {
     }, 2000);
 
     return () => clearTimeout(timer);
-}, [dispatch]);
+  }, [dispatch]);
 
-  const handleClose = () => {
+  const handleClose = (shopId: string) => {
     dispatch(closeMallPopup());
     localStorage.setItem('popupStatus', 'closed');
+    localStorage.setItem('shops', `${shopId}`);
   };
 
   return (
     <>
-     {isMallPopupVisible ? (
+      {isMallPopupVisible ? (
         <Mall onClose={handleClose} />
       ) :
         isLoading ? (
           <Preloader />
         ) : (
-        <main className={styles.container}>
-          <FilterBar />
-          <div className={styles.content}>
-            <section className={styles.header}>
-              <GraphTypeSelector />
-              <Link className={styles.logout} to="./login">
-                <img src={icon_logout} />
-              </Link>
-            </section>
-            <Graph></Graph>
-            <section className={styles.toolbar}>
-              <DaySelector />
-              <div className={styles.button__container}>
-                <button
-                  type="button"
-                  className={`${styles.button_excel} ${styles.button_excel_type_blue}`}
-                >
-                  <img
-                    src={icon_chart}
-                    className={styles.icon_chart}
-                    alt="Иконка графика"
-                  />
-                  График
-                </button>
-                <button type="button" className={styles.button_excel}>
-                  Выгрузить в Excel
-                </button>
-              </div>
-            </section>
-            <Table />
-          </div>
-        </main>
-      )}
+          <main className={styles.container}>
+            <FilterBar />
+            <div className={styles.content}>
+              <section className={styles.header}>
+                <GraphTypeSelector />
+                <Link className={styles.logout} to="./login">
+                  <img src={icon_logout} />
+                </Link>
+              </section>
+              <Graph></Graph>
+              <section className={styles.toolbar}>
+                <DaySelector />
+                <div className={styles.button__container}>
+                  <button
+                    type="button"
+                    className={`${styles.button_excel} ${styles.button_excel_type_blue}`}
+                  >
+                    <img
+                      src={icon_chart}
+                      className={styles.icon_chart}
+                      alt="Иконка графика"
+                    />
+                    График
+                  </button>
+                  <button type="button" className={styles.button_excel}>
+                    Выгрузить в Excel
+                  </button>
+                </div>
+              </section>
+              <Table />
+            </div>
+          </main>
+        )}
     </>
   );
 };

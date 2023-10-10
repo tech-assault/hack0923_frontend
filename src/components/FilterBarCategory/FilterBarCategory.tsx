@@ -55,7 +55,10 @@ const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, se
 
     const handleCheckboxChange = (mall: string) => {
         setSelectedMall(mall);
-        if (typeOfFilter === 'shops') dispatch(setShopsData(mall))
+        if (typeOfFilter === 'shops') {
+            dispatch(setShopsData(mall))
+            localStorage.setItem('shops', mall)
+        }
         else if (typeOfFilter === 'group') dispatch(setGroupData(mall))
         else if (typeOfFilter === 'category') dispatch(setCategoryData(mall))
         else if (typeOfFilter === 'subcategory') dispatch(setSubcategoryData(mall))
@@ -76,6 +79,8 @@ const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, se
         }
     }, [searchValue, originalData]); // Add originalData to dependency array
 
+    const selectShopRedux = useSelector(store => store.MainPage.filters.shops)
+
     return (
         <div className={styles.container}>
             <button className={styles.button} onClick={handleClick}>
@@ -94,7 +99,7 @@ const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, se
                             return (
                                 <li className={styles.list_item} key={index}>
                                     <label className={styles.input_label} htmlFor={`checkbox-${index}`}>
-                                        <input className={styles.input_checkbox} type='checkbox' id={`checkbox-${index}`} checked={selectedMall === el}
+                                        <input className={styles.input_checkbox} type='checkbox' id={`checkbox-${index}`} checked={selectedMall === el || selectShopRedux === el}
                                             onChange={() => handleCheckboxChange(el)} />
                                         <p className={styles.input_label_text}>{el}</p>
                                     </label>
