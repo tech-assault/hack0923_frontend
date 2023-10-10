@@ -1,11 +1,11 @@
 import styles from "./Preloader.module.css";
+import preloader from "../../vendor/images/preloader.png";
 
 const Preloader = () => {
     return (
         <div className={styles.preloader}>
-            <div className={styles.preloader__container}>
-                <span className={styles.preloader__round}></span>
-            </div>
+           <img src={preloader} className={styles.image} alt="Лента Прелоадер" />
+           <p  className={styles.paragraph}>Загрузка данных...</p>
         </div>
     )
 };

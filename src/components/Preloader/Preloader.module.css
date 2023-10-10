@@ -43,47 +43,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
-    z-index: 10;
-    padding: 40px 0;
+    background-repeat: no-repeat;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 60, 150, 0.95) 0%,
+        rgba(0, 60, 150, 0.95) 100%
+      ),
+      url("/src/vendor/images/mall.jpg"), lightgray 50%;
+    background-size: cover;
     
 }
 
-.preloader__container {
-    width: 250px;
-    height: 250px;
-    position: relative;
+.image {
+    width: 92px;
+    height: 112px;
+    margin-bottom: 24px;
 }
 
-.preloader__round {
-    width: 250px;
-    height: 250px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #003C96;
-    border-radius: 125px;
-}
-
-.preloader__round::after,
-.preloader__round::before {
-    content: '';
-    width: 250px;
-    height: 250px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 125px;
-}
-
-.preloader__round::after {
-    background: white;
-    animation: preloader-inside-white 1s ease-in-out infinite;
-}
-
-.preloader__round::before {
-    z-index: 10;
-    background: #003C96;
-    animation: preloader-inside-red 1s ease-in-out infinite;
+.paragraph {
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
 }
