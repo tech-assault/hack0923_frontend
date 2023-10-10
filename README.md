@@ -57,7 +57,8 @@ npm run dev
 - Redux
 - TypeScript
 - Vite
-- Prettier
+- React-router-dom
+- RTK Query
 - Сhart.js
 ## Ссылки на сторонние фреймворки, библиотеки
 
