@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useMemo } from "react";
+import { FC, useState, useEffect, useMemo, useRef } from "react";
 import styles from "./Mall.module.css";
 import lenta_logo from "../../vendor/images/lenta_logo.svg";
 import { useGetShopsQuery } from "../../redux/slices/API";
@@ -53,6 +53,8 @@ const Mall: FC<MallProps> = ({ onClose }) => {
 
   const [idErrorMessage, setIdErrorMessage] = useState<string | null>(null);
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     setFilteredCities(storeCities);
   }, [storeCities]);
@@ -64,19 +66,6 @@ const Mall: FC<MallProps> = ({ onClose }) => {
   function handleCityClick(city: string) {
     setSelectedCity(city);
     setDropdownVisibleCity(false);
-  }
-
-  function handleIdClick(id: string) {
-    setSelectedId(id);
-    // Проверяем наличие свойства data и наличие массива data внутри объекта data
-    if (data && data.data) {
-      const correspondingCity = data.data.find(shop => shop.store === id)?.city;
-      if (correspondingCity) {
-        setSelectedCity(correspondingCity);
-      }
-    }
-
-    setDropdownVisibleId(false);
   }
 
 
@@ -99,6 +88,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
   const handleIdInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedId(e.target.value);
     setFilteredIds(storeIds.filter((id) => id.includes(e.target.value)));
+    console.log(selectedId, 'В написании', isIdValid);
 
     if (!e.target.checkValidity()) {
       setIsIdValid(false);
@@ -108,6 +98,29 @@ const Mall: FC<MallProps> = ({ onClose }) => {
       setIsIdValid(true);
     }
   };
+
+  function handleIdClick(id: string) {
+    setSelectedId(id);
+    setTimeout(() => {
+      if (inputRef.current) {
+          const isValid = inputRef.current.checkValidity();
+          setIsIdValid(isValid);
+      }
+  }, 0);
+    // Проверяем наличие свойства data и наличие массива data внутри объекта data
+    if (data && data.data) {
+      const correspondingCity = data.data.find(shop => shop.store === id)?.city;
+      if (correspondingCity) {
+        setSelectedCity(correspondingCity);
+      }
+    }
+
+    setDropdownVisibleId(false);
+  }
+
+//   useEffect(() => {
+//     console.log(selectedId, 'После обновления!');
+// }, [selectedId]);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -141,14 +154,12 @@ const Mall: FC<MallProps> = ({ onClose }) => {
           <div className={styles["city-selector"]}>
             <input
               type="text"
-              minLength={28}
-              maxLength={35}
+              readOnly
               value={selectedCity}
               onChange={handleCityInputChange}
               onClick={() => setDropdownVisibleCity(!dropdownVisibleCity)}
-              className={`${styles.login__info} ${styles.login__info_form_title} ${!isCityValid ? styles.login__info_type_invalid : ''}`}
-              placeholder="Поиск.."
-              required
+              className={`${styles.login__info} ${styles.login__info_form_title}}`}
+              placeholder="Москва"
             />
 
             {dropdownVisibleCity && (
@@ -173,6 +184,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
               minLength={28}
               maxLength={35}
               value={selectedId}
+              ref={inputRef}
               onChange={handleIdInputChange}
               onClick={() => setDropdownVisibleId(!dropdownVisibleId)}
               className={`${styles.login__info} ${styles.login__info_form_subtitle} ${!isIdValid ? styles.login__info_type_invalid : ''}`}
@@ -194,7 +206,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
             )}
           </div>
 
-          {idErrorMessage && (
+          {!isIdValid && (
             <span className={styles.span}>{idErrorMessage}</span>
           )}
           <button type="submit" className={styles["login__button-save"]} disabled={!isIdValid || !isCityValid}>
