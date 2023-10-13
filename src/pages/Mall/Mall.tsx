@@ -17,7 +17,6 @@ const Mall: FC<MallProps> = ({ onClose }) => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedId, setSelectedId] = useState("");
 
-  const [isCityValid, setIsCityValid] = useState(true);
   const [isIdValid, setIsIdValid] = useState(true);
 
   const { data, isSuccess } = useGetShopsQuery()
@@ -76,13 +75,6 @@ const Mall: FC<MallProps> = ({ onClose }) => {
         city.toLowerCase().includes(e.target.value.toLowerCase())
       )
     );
-    if (!e.target.checkValidity()) {
-      setIsCityValid(false);
-      setIdErrorMessage(e.target.validationMessage);
-    } else {
-      setIdErrorMessage(null);
-      setIsCityValid(true);
-    }
   };
 
   const handleIdInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -209,7 +201,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
           {!isIdValid && (
             <span className={styles.span}>{idErrorMessage}</span>
           )}
-          <button type="submit" className={styles["login__button-save"]} disabled={!isIdValid || !isCityValid}>
+          <button type="submit" className={styles["login__button-save"]} disabled={!isIdValid}>
             Перейти к данным
           </button>
         </form>
