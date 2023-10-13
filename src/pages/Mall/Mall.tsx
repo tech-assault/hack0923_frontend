@@ -80,7 +80,6 @@ const Mall: FC<MallProps> = ({ onClose }) => {
   const handleIdInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedId(e.target.value);
     setFilteredIds(storeIds.filter((id) => id.includes(e.target.value)));
-    console.log(selectedId, 'В написании', isIdValid);
 
     if (!e.target.checkValidity()) {
       setIsIdValid(false);
@@ -109,10 +108,6 @@ const Mall: FC<MallProps> = ({ onClose }) => {
 
     setDropdownVisibleId(false);
   }
-
-//   useEffect(() => {
-//     console.log(selectedId, 'После обновления!');
-// }, [selectedId]);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
