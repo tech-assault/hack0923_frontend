@@ -47,16 +47,11 @@ const Mall: FC<MallProps> = ({ onClose }) => {
   const [dropdownVisibleCity, setDropdownVisibleCity] = useState(false);
   const [dropdownVisibleId, setDropdownVisibleId] = useState(false);
 
-  const [filteredCities, setFilteredCities] = useState<string[]>([]);
   const [filteredIds, setFilteredIds] = useState<string[]>([]);
 
   const [idErrorMessage, setIdErrorMessage] = useState<string | null>(null);
 
   const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    setFilteredCities(storeCities);
-  }, [storeCities]);
 
   useEffect(() => {
     setFilteredIds(storeIds);
@@ -70,16 +65,11 @@ const Mall: FC<MallProps> = ({ onClose }) => {
 
   const handleCityInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedCity(e.target.value);
-    setFilteredCities(
-      storeCities.filter((city) =>
-        city.toLowerCase().includes(e.target.value.toLowerCase())
-      )
-    );
   };
 
   const handleIdInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilteredIds(storeIds.filter((id) => id.startsWith(e.target.value)));
     setSelectedId(e.target.value);
-    setFilteredIds(storeIds.filter((id) => id.includes(e.target.value)));
 
     if (!e.target.checkValidity()) {
       setIsIdValid(false);
@@ -151,7 +141,7 @@ const Mall: FC<MallProps> = ({ onClose }) => {
 
             {dropdownVisibleCity && (
               <div className={styles["city-dropdown"]}>
-                {filteredCities.map((city) => (
+                {storeCities.map((city) => (
                   <div
                     key={city}
                     className={styles["city-dropdown__name"]}
