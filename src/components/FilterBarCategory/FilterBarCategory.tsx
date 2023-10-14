@@ -72,7 +72,7 @@ const FilterBarCategory: FC<FilterBarCategoryProps> = ({ title, openedFilter, se
 
     useEffect(() => {//search
         if (searchValue !== '') {//Show filtered list or initial data if string=''
-            const newFilteredData = originalData.filter(el => el.toString().toLowerCase().includes(searchValue.toLowerCase())); // Use originalData instead of filteredData
+            const newFilteredData = originalData.filter(el => el.toString().toLowerCase().startsWith(searchValue.toLowerCase())); // Use originalData instead of filteredData
             setFilteredData(newFilteredData);
         } else {
             setFilteredData(originalData); // Reset to original data
