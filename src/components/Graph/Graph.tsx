@@ -3,33 +3,16 @@ import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import styles from './Graph.module.css'
 import { useSelector } from '../../hooks/useSelector';
+import { generateFormattedDatesBetween } from '../../utils/functions';
 
 const Graph = () => {
 
     Chart.register(...registerables);//fix problem with charts.js
 
-    const formatDate = (date: Date): string => {
-        const day = date.getDate().toString().padStart(2, '0');
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
-        const year = date.getFullYear();
-        return `${day}.${month}.${year}`;
-    };
 
     const timeFrom = useSelector((store) => store.MainPage.timeRange.from);
     const timeTo = useSelector((store) => store.MainPage.timeRange.to);
 
-    const generateFormattedDatesBetween = (from: number, to: number): string[] => {
-        const dates = [];
-
-        const startDate = new Date(from);
-        const endDate = new Date(to);
-
-        for (let current = startDate; current <= endDate; current.setDate(current.getDate() + 1)) {
-            dates.push(formatDate(current));
-        }
-
-        return dates;
-    }
     const datesArray = generateFormattedDatesBetween(timeFrom, timeTo);
 
     //TEST DATA
